@@ -10,9 +10,11 @@ jobs:
           image_resource:
             type: registry-image
             source:
-              repository: busybox # images are pulled from docker hub by default
+              repository: sconrod/python-aws-image
+              tag: 2 # images are pulled from docker hub by default
           # The command Concourse will run inside the container
           # echo "Hello world!"
           run:
             path: echo
             args: ["Hello world!"]
+
