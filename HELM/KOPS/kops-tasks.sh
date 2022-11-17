@@ -1,4 +1,3 @@
-#!/bin/bash
 #Create the AWS root and developer account, save the access key id and secret.
 #https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 
@@ -18,16 +17,17 @@ aws iam add-user-to-group --user-name kops --group-name kops
 aws iam create-access-key --user-name kops
 
 
-aws configure --profile kops
+aws configure --profile gprs-kops
 aws s3 ls --profile kops
-export AWS_PROFILE=default/kops
+export AWS_PROFILE=default
+export AWS_PROFILE=kops
 cat ~/.aws/credentials
 aws iam list-users
 export AWS_ACCESS_KEY_ID=$(aws configure get aws_access_key_id)
 export AWS_SECRET_ACCESS_KEY=$(aws configure get aws_secret_access_key)
 
 #DNS configuration, create the hosted zone in route53
-# domain name: cisco-fso-labs.com
+# domain name: ciscolivedemo2022.com
 #name servers from aws
 ns-1924.awsdns-48.co.uk.
 ns-1037.awsdns-01.org.
@@ -35,32 +35,43 @@ ns-193.awsdns-24.com.
 ns-739.awsdns-28.net.
 
 #test dns servers
-dig ns cisco-fso-labs.com
+dig ns ciscolivedemo2022.com
 
 #s3 bucket
 aws s3api create-bucket \
     --bucket cisco-fso-labs-kops-state \
     --region us-west-1
 
+aws s3api create-bucket \
+    --bucket ciscolivedemo-kops-state \
+    --region us-west-1 \
+    --create-bucket-configuration LocationConstraint=us-west-1
+
 #Enable versioning
-aws s3api put-bucket-versioning --bucket cisco-fso-labs-kops-state  --versioning-configuration Status=Enabled
+aws s3api put-bucket-versioning --bucket ciscolivedemo-kops-state  --versioning-configuration Status=Enabled
 #export variables
 #export NAME=cluster1.k8s.local
-export NAME=k8s.cisco-fso-labs.com
-export KOPS_STATE_STORE=s3://fsocloud-kops-state
+export NAME=kube.ciscolivedemo2022.com
+export KOPS_STATE_STORE=s3://ciscolivedemo-kops-state
 
 #kops export kubeconfig $NAME --admin
 
 #cluster creation
 kops create cluster --name=${NAME} --cloud=aws --zones=us-west-1a --master-size t2.micro --node-size t2.micro --kubernetes-version 1.20.15
 kops create cluster --name=${NAME} --cloud=aws --zones=us-west-1a --master-size t2.medium --node-size t2.medium
+kops create cluster --name=${NAME} --cloud=aws --zones=us-west-1a --master-size t2.micro --node-size t2.micro --kubernetes-version 1.20.15
 kops get cluster
-kops edit cluster k8s.cisco-fso-labs.com
+kops edit cluster ${NAME}
 #kops update cluster --name ${NAME} --yes --admin
 kops update cluster --name ${NAME} --yes --admin
 kops validate cluster --wait 10m
 kops delete cluster --name ${NAME} --yes
 kubectl get nodes
+
+#upgrading cluster
+kops upgrade cluster --yes
+kops rolling-update cluster --yes
+
 
 #testing pods and loadbalancer
 kubectl create deployment my-nginx --image=nginx --replicas=1 --port=80;

@@ -1,6 +1,14 @@
+resources:
+  - name: repo
+    type: git
+    source:
+      uri: https://github.com/anujmodi1/ciscolivedemo.git
+
+
 jobs:
   - name: deploy-thousandeyes-agents
     plan:
+      - get: repo
       - task: deploy-thousandeyes-agents-task
         params:
           TE_token: v5xcz0yzny805strwr4y35z4p72luy7k
