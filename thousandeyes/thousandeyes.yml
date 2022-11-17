@@ -11,7 +11,7 @@ jobs:
       - get: repo
       - task: deploy-thousandeyes-agents-task
         params:
-          TE_token: v5xcz0yzny805strwr4y35z4p72luy7k
+          TE_token: xxxx
         config:
 
           # Tells Concourse which type of worker this task should run on
