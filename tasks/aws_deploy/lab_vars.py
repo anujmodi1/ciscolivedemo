@@ -1,0 +1,7 @@
+name='us-west-2a'
+region='us-west-2'
+az='us-west-2a'
+name='us-west-2a'
+ubuntu_ami_id='ami-0597f94f56d2d2f9a'
+centos_ami_id='ami-08c191625cfb7ee61'
+vault_addr='http://dev-vault.devops-ontap.com:8200'
