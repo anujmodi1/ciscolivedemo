@@ -12,8 +12,8 @@ inputs:
 
 params:
   VAULT_ADDR: http://dev-vault.ciscolivedemo2022.com:8200
-  #SSH_TOKEN: ((ssh-token.token))
-  SSH_TOKEN: hvs.CAESIJ8GQvLpHiNVz5G3X9x_xUrwiKIrGDoaSDRCRoUPORqQGh4KHGh2cy5lWW5tQ1ZQdTdJZVg5QjR1WHltckVUMmg
+  SSH_TOKEN: ((ssh-token.token))
+  #SSH_TOKEN: xxxxx
 
 run:
   path: /bin/sh
