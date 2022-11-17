@@ -68,4 +68,4 @@ aws key, secret and ssh.token
             SSH_TOKEN: ((ssh-token.token))
 
 
-vault token create --policy cisco-fso-labs --period 24h
+vault token create --policy development --period 24h
