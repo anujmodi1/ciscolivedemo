@@ -72,7 +72,7 @@ data_json = {"vaut_addr": vault_addr }
 resp = requests.post(url, headers=headers, json=data_json)
 print(resp.status_code)
 
-url = "http://dev-vault.devops-ontap.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "name"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "name"
 
 headers = CaseInsensitiveDict()
 headers["X-Vault-Token"] = VAULT_TOKEN
