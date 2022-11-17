@@ -40,13 +40,13 @@ Login
 
 fly --target=prod login --concourse-url=http://prod-ci.devops-ontap.com:8080 -n main --username=ci --password=""
 
-fly --target=dev login --concourse-url=http://dev-ci.cisco-fso-labs.com:8080 -n main --username=ci --password=$PASSWORD
+fly --target=dev login --concourse-url=http://dev-ci.ciscolivedemo2022.com:8080 -n main --username=ci --password=cisco@2022
 
 Set-Pipeline Example:
 ========
-fly -t prod set-pipeline -p cisco-fso-labs e -c pipeline-v3.yml -l /Users/sconrod/dev/cisco-fso-lab-gen/params/main-us-west-2a.yml -v aws.region=us-west-2 -v az.name=us-west-2a -v vault.addr=http://prod-vault.devops-ontap.com:8200
+fly -t dev set-pipeline -p development e -c pipeline-v3.yml -l /Users/sconrod/dev/cisco-fso-lab-gen/params/main-us-west-2a.yml -v aws.region=us-west-2 -v az.name=us-west-2a -v vault.addr=http://prod-vault.devops-ontap.com:8200
 
-fly -t dev set-pipeline -p cisco-fso-labs -c pipeline-v3.yml -l /Users/anmodi/dev/notes/params.yml -v aws.region=us-west-2 -v az.name=us-west-2a -v vault.addr=http://dev-vault.cisco-fso-labs.com:8200
+fly -t dev set-pipeline -p development -c /Users/anmodi/dev/ciscolivedemo/pipelines/pipeline-v4.yml -l /Users/anmodi/dev/notes-ciscolive/ciscolive-params.yml -v aws.region=us-west-1 -v az.name=us-west-1a -v vault.addr=http://dev-vault.ciscolivedemo2022.com:8200
 
 
 (you can also put the variables passed to this command in your parameters file)

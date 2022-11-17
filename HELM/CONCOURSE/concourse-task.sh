@@ -10,8 +10,8 @@ cd concourse-chart/
 helm dependency build
 kubectl create ns dev-ci
 helm -n dev-ci install dev-ci . -f /Users/anmodi/dev/ciscolivedemo/HELM/CONCOURSE/dev/dev-ci-values.yaml
-kubectl get svc -n devv-ci
-
+kubectl get svc -n dev-ci
+kubectl get pods -n dev-ci
 helm uninstall dev-ci -n dev-ci
 
 Note down the loadbalance fqdn from the list

@@ -65,6 +65,7 @@ path "concourse/main/*" {
 aws key, secret and ssh.token
     AWS_KEY_ID: ((Access_key_ID.Access_key))
       AWS_KEY: ((Secret_access_key.Secret_access_key))
+            SSH_TOKEN: ((ssh-token.token))
 
 
 vault token create --policy cisco-fso-labs --period 24h
