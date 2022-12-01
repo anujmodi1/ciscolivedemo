@@ -13,9 +13,9 @@ inputs:
 params:
   AWS_KEY_ID: ((Access_key_ID.Access_key))
   AWS_KEY: ((Secret_access_key.Secret_access_key))
-  VAULT_ADDR: http://dev-vault.devops-ontap.com:8200
-  SSH_TOKEN: ((ssh-token.token))
-  NAME: us-west-2a
+  VAULT_ADDR: http://dev-vault.ciscolivedemo2022.com:8200
+  SSH_TOKEN: hvs.CAESIKSy8kPtRq40O5Usifbec3mU05h99lUz8mJBxGxowYlsGh4KHGh2cy5jVGFGZzZBSUFZU3dDdFl4eXBPS3g0Qlo
+  NAME: ap-south-1a
 
 run:
   path: /bin/sh
@@ -28,8 +28,8 @@ run:
       export VAULT_ADDR=$VAULT_ADDR
       export VAULT_TOKEN=$SSH_TOKEN
       vault login --no-print $VAULT_TOKEN
-      export REGION=$(vault kv get --field=region concourse/cisco-fso-labs/$NAME/region)
-      export AZ=$(vault kv get --field=az concourse/cisco-fso-labs/$NAME/az)
+      export REGION=$(vault kv get --field=region concourse/development/$NAME/region)
+      export AZ=$(vault kv get --field=az concourse/development/$NAME/az)
       echo $REGION
       echo $AZ
       aws configure set aws_access_key_id $AWS_KEY_ID
