@@ -12,7 +12,7 @@ export VAULT_TOKEN=$SSH_TOKEN
 vault login --no-print $VAULT_TOKEN
 export NAME=$AZ
 #This is by team, so if logged into main you need the ssh-token that has the cisco-fso-labs policy.
-vault kv put concourse/cisco-fso-labs/$NAME/ssh-key ssh-key=@$PRIVATE_KEY
+vault kv put concourse/development/$NAME/ssh-key ssh-key=@$PRIVATE_KEY
 
 
 
