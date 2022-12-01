@@ -14,7 +14,7 @@ params:
   AWS_KEY_ID: ((Access_key_ID.Access_key))
   AWS_KEY: ((Secret_access_key.Secret_access_key))
   VAULT_ADDR: http://dev-vault.ciscolivedemo2022.com:8200
-  SSH_TOKEN: hvs.CAESIKSy8kPtRq40O5Usifbec3mU05h99lUz8mJBxGxowYlsGh4KHGh2cy5jVGFGZzZBSUFZU3dDdFl4eXBPS3g0Qlo
+  SSH_TOKEN: ((ssh-token.token))
   NAME: ap-south-1a
 
 run:
