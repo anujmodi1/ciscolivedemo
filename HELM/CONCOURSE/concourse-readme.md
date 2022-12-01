@@ -24,7 +24,7 @@ If you wish to upgrade the image tag or chart version, you should first test it 
   - line 607: vaultAuthParam: "role_id:504cc747-f759-f26b-f477-d0de7c1b5bdb,secret_id:c81036b8-c7e1-0681-f427-9872f80d7020"
 - [] Test out your approle_id and secret_id :
 
-curl -k -XPOST -d '{"role_id":"c5b11052-e660-1615-2d99-4337dea60166","secret_id":"00d19ad5-8a45-ab8e-0ae3-d27bb5493914"}' http://prod-vault.devops-ontap.com:8200/v1/auth/approle/login | jq
+curl -k -XPOST -d '{"role_id":"c5b11052-e660-1615-2d99-4337dea60166","secret_id":"00d19ad5-8a45-ab8e-0ae3-d27bb5493914"}'http://prod-vault.devops-ontap.com:8200/v1/auth/approle/login | jq
 
 
 Helm Upgrades
@@ -48,6 +48,7 @@ fly -t dev set-pipeline -p development e -c pipeline-v3.yml -l /Users/sconrod/de
 
 fly -t dev set-pipeline -p development -c /Users/anmodi/dev/ciscolivedemo/pipelines/pipeline-v4.yml -l /Users/anmodi/dev/notes-ciscolive/ciscolive-params.yml -v aws.region=us-west-1 -v az.name=us-west-1a -v vault.addr=http://dev-vault.ciscolivedemo2022.com:8200
 
+fly -t development set-pipeline -p pipeline1 -c /Users/anmodi/dev/ciscolivedemo/pipelines/pipeline-v2.yml -l /Users/anmodi/dev/notes-ciscolive/ciscolive-params.yml -v aws.region=ap-south-1 -v az.name=ap-south-1a -v vault.addr=http://dev-vault.ciscolivedemo2022.com:8200
 
 (you can also put the variables passed to this command in your parameters file)
 

@@ -21,6 +21,8 @@ http://dev-ci.cisco-fso-labs.com:8080/
 #enter the default user name & password as values.yaml file
 cd /Users/anmodi/dev/cisco-fso-labs/HELM/CONCOURSE
 fly --target=cisco-fso-labs login --concourse-url=http://dev-ci.cisco-fso-labs.com:8080 -n main --username=ci --password=PASSWORD!
+fly --target=development login --concourse-url=http://dev-ci.ciscolivedemo2022.com:8080 -n main --username=ci --password=cisco@2022
+
 # create team cisco-fso--labs
 #setting up team and users
 #https://concourse-ci.org/managing-teams.html

@@ -1,3 +1,17 @@
+#aws cli installation
+# https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+#curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+#sudo installer -pkg AWSCLIV2.pkg -target /
+
+#brew installation
+# https://mac.install.guide/homebrew/3.html
+# xcode-select --install
+#/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Kops installation
+#brew update && brew install kops
+
+
 #Create the AWS root and developer account, save the access key id and secret.
 #https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 
@@ -52,7 +66,7 @@ aws s3api put-bucket-versioning --bucket ciscolivedemo-kops-state  --versioning-
 #export variables
 #export NAME=cluster1.k8s.local
 export NAME=kube.ciscolivedemo2022.com
-export KOPS_STATE_STORE=s3://ciscolivedemo-kops-state
+export KOPS_STATE_STORE=s3://ciscolivedemo2022-kops-state
 
 #kops export kubeconfig $NAME --admin
 
@@ -60,13 +74,15 @@ export KOPS_STATE_STORE=s3://ciscolivedemo-kops-state
 kops create cluster --name=${NAME} --cloud=aws --zones=us-west-1a --master-size t2.micro --node-size t2.micro --kubernetes-version 1.20.15
 kops create cluster --name=${NAME} --cloud=aws --zones=us-west-1a --master-size t2.medium --node-size t2.medium
 kops create cluster --name=${NAME} --cloud=aws --zones=us-west-1a --master-size t2.micro --node-size t2.micro --kubernetes-version 1.20.15
+kops create cluster --name=${NAME} --cloud=aws --zones=ap-south-1a --master-size t2.medium --node-size t2.medium
 kops get cluster
 kops edit cluster ${NAME}
 #kops update cluster --name ${NAME} --yes --admin
 kops update cluster --name ${NAME} --yes --admin
 kops validate cluster --wait 10m
+# ssh -i ~/.ssh/id_rsa ubuntu@api.kube.ciscolivedemo2022.com
 kops delete cluster --name ${NAME} --yes
-kubectl get nodes
+kubectl get nodes --show-labels
 
 #upgrading cluster
 kops upgrade cluster --yes

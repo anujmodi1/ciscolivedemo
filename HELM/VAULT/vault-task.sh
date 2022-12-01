@@ -1,6 +1,7 @@
 #helm installation
 sudo snap install helm --classic
-
+#brew install helm
+#https://helm.sh/docs/intro/install/
 
 #vault installation
 helm repo add hashicorp https://helm.releases.hashicorp.com
@@ -17,7 +18,7 @@ helm status dev-vault -n dev-vault
 kubectl  get all -n dev-vault
 kubectl exec -it dev-vault-0 -n dev-vault -- vault status
 kubectl exec -it pod/dev-vault-0 -n dev-vault -- vault operator init -n 1 -t 1
-kubectl exec -it pod/dev-vault-0 -n dev-vault -- vault operator unseal F/QUp6JVsbqZqbQA1Xx3DRoP4DvV2y+Wj2MBA9RSt4o=
+kubectl exec -it pod/dev-vault-0 -n dev-vault -- vault operator unseal MqK2syzwzzslNzLtCHvl5wu4o5ZXpSjfcaO/p/md8Uw=
 #deleting the data in the vault
 helm del --purge vault
 helm uninstall dev-vault -n dev-vault
