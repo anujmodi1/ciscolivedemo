@@ -35,6 +35,16 @@ aws iam create-user --user-name kops
 aws iam add-user-to-group --user-name kops --group-name kops
 aws iam create-access-key --user-name kops
 
+**AWS Access Key ID and Secret Config**
+aws configure --profile kops
+aws s3 ls --profile kops
+export AWS_PROFILE=default
+export AWS_PROFILE=kops
+cat ~/.aws/credentials
+aws iam list-users
+
+export AWS_ACCESS_KEY_ID=$(aws configure get aws_access_key_id)
+export AWS_SECRET_ACCESS_KEY=$(aws configure get aws_secret_access_key)
 #DNS configuration, create the hosted zone in route53
 # domain name: ciscolivedemo2022.com
 #name servers from aws
@@ -46,7 +56,7 @@ ns-739.awsdns-28.net.
 #test dns servers
 dig ns ciscolivedemo2022.com
 
-#s3 bucket
+**Creating s3 bucket**
 aws s3api create-bucket \
 --bucket cisco-fso-labs-kops-state \
 --region us-west-1
@@ -63,16 +73,9 @@ aws s3api put-bucket-versioning --bucket ciscolivedemo-kops-state  --versioning-
 export NAME=k8s.ciscolivedemo2022.com
 export KOPS_STATE_STORE=s3://ciscolivedemo2022-kops-state
 
-#Enable versioning
-aws s3api put-bucket-versioning --bucket ciscolivedemo-kops-state  --versioning-configuration Status=Enabled
-#export variables
-#export NAME=cluster1.k8s.local
-export NAME=k8s.ciscolivedemo2022.com
-export KOPS_STATE_STORE=s3://ciscolivedemo2022-kops-state
-
 #kops export kubeconfig $NAME --admin
 
-#cluster creation
+**#Kubernets cluster creation**
 kops create cluster --name=${NAME} --cloud=aws --zones=us-west-1a --master-size t2.micro --node-size t2.micro --kubernetes-version 1.20.15
 kops create cluster --name=${NAME} --cloud=aws --zones=us-west-1a --master-size t2.medium --node-size t2.medium
 kops create cluster --name=${NAME} --cloud=aws --zones=us-west-1a --master-size t2.micro --node-size t2.micro --kubernetes-version 1.20.15

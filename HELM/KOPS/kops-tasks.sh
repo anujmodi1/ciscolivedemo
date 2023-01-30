@@ -57,15 +57,15 @@ aws s3api create-bucket \
     --region us-west-1
 
 aws s3api create-bucket \
-    --bucket ciscolivedemo-kops-state \
-    --region us-west-1 \
-    --create-bucket-configuration LocationConstraint=us-west-1
+    --bucket ciscolivedemo2022-kops-state \
+    --region ap-south-1 \
+    --create-bucket-configuration LocationConstraint=ap-south-1
 
 #Enable versioning
 aws s3api put-bucket-versioning --bucket ciscolivedemo-kops-state  --versioning-configuration Status=Enabled
 #export variables
 #export NAME=cluster1.k8s.local
-export NAME=kube.ciscolivedemo2022.com
+export NAME=k8s.ciscolivedemo2022.com
 export KOPS_STATE_STORE=s3://ciscolivedemo2022-kops-state
 
 #kops export kubeconfig $NAME --admin
