@@ -56,7 +56,7 @@ fly -t development set-pipeline -p pipeline1 -c /Users/anmodi/dev/ciscolivedemo/
 
 fly -t dev set-pipeline -p pipeline4 -c /Users/anmodi/dev/cisco-fso-labs/pipelines/beta/pipeline-v4.yml -l /Users/anmodi/dev/notes/params.yml -v aws.region=us-west-1 -v az.name=us-west-1a -v vault.addr=http://dev-vault.ciscolivedemo2022.com:8200
 
-fly -t dev set-pipeline -p pipeline4 -c /Users/anmodi/dev/cisco-fso-labs/pipelines/beta/pipeline-v4.yml -l /Users/anmodi/dev/notes/params.yml -v aws.region=us-west-1 -v az.name=us-west-1a -v vault.addr=http://dev-vault.ciscolivedemo2022.com:8200
+fly -t dev set-pipeline -p pipeline5 -c /Users/anmodi/dev/ciscolivedemo/pipelines/pipeline-v5.yml -l /Users/anmodi/dev/notes-ciscolive/ciscolive-params.yml -v aws.region=us-west-1 -v az.name=us-west-1a -v vault.addr=http://dev-vault.ciscolivedemo2022.com:8200
 
 
 Setup Teams and Roles
