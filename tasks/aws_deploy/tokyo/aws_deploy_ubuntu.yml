@@ -16,7 +16,7 @@ params:
   NAME: ap-northeast-1a
   REGION: ap-northeast-1
   UBUNTU_AMI_ID: ami-062021fe0ad5f5c9e
-  VAULT_ADDR: http://dev-vault.devops-ontap.com:8200
+  VAULT_ADDR: http://dev-vault.ciscolivedemo2022.com:8200
   SSH_TOKEN: ((ssh-token.token))
 
 run:

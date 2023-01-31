@@ -24,7 +24,7 @@ sg_name=name
 VAULT_ADDR = os.getenv('VAULT_ADDR')
 VAULT_TOKEN = os.getenv('SSH_TOKEN')
 #VAULT_TOKEN = os.getenv('VAULT_TOKEN')
-url = "http://dev-vault.devops-ontap.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "key_name"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "key_name"
 headers = CaseInsensitiveDict()
 headers["X-Vault-Token"] = VAULT_TOKEN
 headers["Content-Type"] = "application/json"
@@ -316,7 +316,7 @@ print("Output: \n{}\n".format(output))
 #Write Key to vault
 
 #Write vpcid  to the vault
-url = "http://dev-vault.devops-ontap.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "vpcid"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "vpcid"
 
 headers = CaseInsensitiveDict()
 headers["X-Vault-Token"] = VAULT_TOKEN
@@ -331,7 +331,7 @@ print(resp.status_code)
 
 #3 Write the subnetid_public to the vault
 
-url = "http://dev-vault.devops-ontap.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "subnetid_public"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "subnetid_public"
 
 headers = CaseInsensitiveDict()
 headers["X-Vault-Token"] = VAULT_TOKEN
@@ -345,7 +345,7 @@ print(resp.status_code)
 
 #4 Write the subnetid_mgmt to the vault
 
-url = "http://dev-vault.devops-ontap.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "subnetid_mgmt"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "subnetid_mgmt"
 
 headers = CaseInsensitiveDict()
 headers["X-Vault-Token"] = VAULT_TOKEN
@@ -359,7 +359,7 @@ print(resp.status_code)
 
 #5 Write the igid to the vault
 
-url = "http://dev-vault.devops-ontap.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "igid"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "igid"
 
 headers = CaseInsensitiveDict()
 headers["X-Vault-Token"] = VAULT_TOKEN
@@ -373,7 +373,7 @@ print(resp.status_code)
 
 #10 - Write rt_mgmt_id to the vault
 
-url = "http://dev-vault.devops-ontap.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "rt_mgmt_id"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "rt_mgmt_id"
 
 headers = CaseInsensitiveDict()
 headers["X-Vault-Token"] = VAULT_TOKEN
@@ -386,7 +386,7 @@ resp = requests.post(url, headers=headers, json=data_json)
 print(resp.status_code)
 
 #11 - Write rt_mgmt_id to the vault
-url = "http://dev-vault.devops-ontap.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "rt_mgmt_id"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "rt_mgmt_id"
 
 headers = CaseInsensitiveDict()
 headers["X-Vault-Token"] = VAULT_TOKEN
@@ -400,7 +400,7 @@ print(resp.status_code)
 
 #13 - Write the cisco-fso-labs_sg_id to the vault
 
-url = "http://dev-vault.devops-ontap.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "cisco-fso-labs_sg_id"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "cisco-fso-labs_sg_id"
 print(url)
 
 headers = CaseInsensitiveDict()

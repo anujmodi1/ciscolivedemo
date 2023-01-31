@@ -53,6 +53,12 @@ fly -t development set-pipeline -p pipeline1 -c /Users/anmodi/dev/ciscolivedemo/
 
 (you can also put the variables passed to this command in your parameters file)
 
+
+fly -t dev set-pipeline -p pipeline4 -c /Users/anmodi/dev/cisco-fso-labs/pipelines/beta/pipeline-v4.yml -l /Users/anmodi/dev/notes/params.yml -v aws.region=us-west-1 -v az.name=us-west-1a -v vault.addr=http://dev-vault.ciscolivedemo2022.com:8200
+
+fly -t dev set-pipeline -p pipeline4 -c /Users/anmodi/dev/cisco-fso-labs/pipelines/beta/pipeline-v4.yml -l /Users/anmodi/dev/notes/params.yml -v aws.region=us-west-1 -v az.name=us-west-1a -v vault.addr=http://dev-vault.ciscolivedemo2022.com:8200
+
+
 Setup Teams and Roles
 ==========
 
@@ -70,10 +76,10 @@ helm repo add bitnami https://charts.bitnami.com/bitnami
 cd concourse-chart/
 helm dependency build
 kubectl create ns dev-ci
-helm -n dev-ci install dev-ci . -f /Users/anmodi/dev/hashitalkdemo/Section03-Deploying_Concourse_CI_Server/dev-ci-values.yaml
-helm -n dev-ci install dev-ci . -f values.yaml
+helm -n dev-ci install dev-ci . -f /Users/anmodi/dev/ciscolivedemo/HELM/CONCOURSE/dev-ci-values.yaml
+helm -n dev-ci instakubectl get pods -n dev-cill dev-ci . -f values.yaml
 kubectl get svc -n dev-ci
-kubectl get pods -n dev-ci
+
 helm uninstall dev-ci -n dev-ci
 
 Note down the loadbalance fqdn from the list

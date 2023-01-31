@@ -25,13 +25,13 @@ cd vault-helm/
 #Use the chart.yaml file from repo to deploy vault
 **#Vault Depployment**
 helm -n dev-vault install dev-vault hashicorp/vault -f values.yaml
-helm -n dev-vault install dev-vault . -f /Users/anmodi/dev/hashitalkdemo/Section02-Deploying_Vault_Prod_Server/dev-vault-values.yaml
+helm -n dev-vault install dev-vault . -f /Users/anmodi/dev/ciscolivedemo/HELM/VAULT/dev-vault-values.yaml
 
 helm status dev-vault -n dev-vault
 kubectl  get all -n dev-vault
 kubectl exec -it dev-vault-0 -n dev-vault -- vault status
 kubectl exec -it pod/dev-vault-0 -n dev-vault -- vault operator init -n 1 -t 1
-kubectl exec -it pod/dev-vault-0 -n dev-vault -- vault operator unseal FEosw0j/DTg3Dl+Q1qFKHH+5aFIjiiRSAYWl/hb1sT4=
+kubectl exec -it pod/dev-vault-0 -n dev-vault -- vault operator unseal qNXxUbAgKI3YtNORc2zfypWRgOcpVSm2+FqzGOkU5k4=
 #deleting the data in the vault
 helm del --purge vault
 helm uninstall dev-vault -n dev-vault
@@ -77,12 +77,12 @@ vault write -f auth/approle/role/concourse/secret-id
 
 #ciscolivedemo and main policy
 
-path "concourse/ciscolivedemo/*" {
-  capabilities = ["read", "create","update", "list"]
+path "concourse/ciscolivedemo/*" { 
+    capabilities = ["read", "create","update", "list"]
 }
 
 path "concourse/main/*" {
-  capabilities = ["read", "create","update", "list"]
+    capabilities = ["read", "create","update", "list"]
 }
 
 #ciscolivedemo and main secrets
@@ -93,3 +93,5 @@ SSH_TOKEN: ((ssh-token.token))
 
 
 vault token create --policy ciscolivedemo --period 24h
+
+vault token create --policy ssh-token --period 24h

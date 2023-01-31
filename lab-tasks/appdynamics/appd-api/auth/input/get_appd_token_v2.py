@@ -34,7 +34,7 @@ my_file.close()
 
 #write the appd oath token returned from the api call to the vault
 
-url = "http://dev-vault.devops-ontap.com:8200/v1/concourse/cisco-fso-labs/appd-oath"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/appd-oath"
 
 VAULT_ADDR = os.getenv('VAULT_ADDRR')
 VAULT_TOKEN = os.getenv('VAULT_TOKEN')
@@ -53,7 +53,7 @@ print(type(resp.text))
 import requests
 from requests.structures import CaseInsensitiveDict
 
-url = "http://dev-vault.devops-ontap.com:8200/v1/concourse/cisco-fso-labs/appd-oath"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/appd-oath"
 
 headers = CaseInsensitiveDict()
 headers["X-Vault-Token"] = VAULT_TOKEN

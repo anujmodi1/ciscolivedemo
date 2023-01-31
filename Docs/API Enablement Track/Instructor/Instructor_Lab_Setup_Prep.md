@@ -48,10 +48,10 @@ This opens your browser URL. Logon with your credentials and paste the bearer to
 Set the Pipeline:
 If not using the vault you need to set up a parameters file in a directory outside git and pass this command to set the pipeline with the params file:
 
-#fly -t cisco-fso-labs set-pipeline -c pipeline-v4.yml -p cisco-fso-labs -l [full path to the params file] -v aws.region=us-east-2 -v az.name=us-east-2c -v vault.addr=http://dev-vault.devops-ontap.com:8200
+#fly -t cisco-fso-labs set-pipeline -c pipeline-v4.yml -p cisco-fso-labs -l [full path to the params file] -v aws.region=us-east-2 -v az.name=us-east-2c -v vault.addr=http://dev-vault.ciscolivedemo2022.com:8200
 
 If using vault, login to vault with the token provided. First set the following two parameters on your local machine:
-VAULT_ADDR=http://dev-vault.devops-ontap.com:8200
+VAULT_ADDR=http://dev-vault.ciscolivedemo2022.com:8200
 VAULT_TOKEN=yourtoken
 
 #vault login

@@ -11,7 +11,7 @@ inputs:
   - name: git-resource
 
 params:
-  VAULT_ADDR: http://dev-vault.devops-ontap.com:8200
+  VAULT_ADDR: http://dev-vault.ciscolivedemo2022.com:8200
   SSH_TOKEN: ((ssh-token.token))
   NAME: ap-southeast-2
 run:
