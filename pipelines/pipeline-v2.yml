@@ -55,7 +55,7 @@ jobs:
       - get: git-resource
         passed: ['deploy-aws-ubuntu']
       - task: deploy-te-agent
-        file: git-resource/tasks/te/te_config/input/install_te_agent_task.yml
+        file: git-resource/tasks/te/te_config/input/vault_task.yml
 
   - name: deploy-te-agents
     public: true
@@ -70,7 +70,7 @@ jobs:
       - get: git-resource
         passed: [lab-prep]
       - task: deploy-appd-agents
-        file: git-resource/tasks/te/te_config/input/install_te_agent_task.yml
+        file: git-resource/tasks/te/te_config/input/vault_task.yml
 
   - name: deploy-aws-centos
     public: true

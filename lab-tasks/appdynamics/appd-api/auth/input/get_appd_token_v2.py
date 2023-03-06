@@ -10,7 +10,7 @@ import requests
 secret = os.getenv('APPD_SECRET')
 
 url = "https://cisco-apipartnertraininglab.saas.appdynamics.com/auth/v1/oauth/token"
-payload = 'grant_type=client_credentials&client_id=fsolab4%40cisco-apipartnertraininglab&client_secret=' + secret
+payload = grant_type=client_credentials&client_id=fsolab4%40cisco-apipartnertraininglab&client_secret=' + secret
 print(payload)
 headers = {
     'Content-Type': 'application/Supercar-Trader/business-transactions'

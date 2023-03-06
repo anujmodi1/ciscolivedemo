@@ -31,12 +31,13 @@ helm status dev-vault -n dev-vault
 kubectl  get all -n dev-vault
 kubectl exec -it dev-vault-0 -n dev-vault -- vault status
 kubectl exec -it pod/dev-vault-0 -n dev-vault -- vault operator init -n 1 -t 1
-kubectl exec -it pod/dev-vault-0 -n dev-vault -- vault operator unseal qNXxUbAgKI3YtNORc2zfypWRgOcpVSm2+FqzGOkU5k4=
+kubectl exec -it pod/dev-vault-0 -n dev-vault -- vault operator unseal 7zr+S5FfqmYIdaIKb/NPXktR2UQsUakh2jmPzGD/ysw=
 #deleting the data in the vault
 helm del --purge vault
 helm uninstall dev-vault -n dev-vault
 
 kubectl  get pods -n dev-vault
+# verify the external-ip + 8200 port of vault is reachable 
 kubectl  get svc -n dev-vault
 #Note down the loadbalance fqdn from the list
 #Paste on browser to check if vault is accessible externally, add 8200 port no.
@@ -94,4 +95,4 @@ SSH_TOKEN: ((ssh-token.token))
 
 vault token create --policy ciscolivedemo --period 24h
 
-vault token create --policy ssh-token --period 24h
+vault token create --policy main --period 24h
