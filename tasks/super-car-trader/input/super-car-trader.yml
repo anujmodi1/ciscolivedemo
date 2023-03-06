@@ -35,7 +35,7 @@ run:
       aws configure set aws_access_key_id $AWS_KEY_ID
       aws configure set aws_secret_access_key $AWS_KEY
       aws configure set default.region $REGION
-      export router_sg_id=$(vault kv get --field=router_sg_id concourse/cisco-fso-labs/$NAME/router_sg_id)
+      export router_sg_id=$(vault kv get --field=router_sg_id concourse/main/$NAME/router_sg_id)
       chmod a+x git-resource/tasks/super-car-trader/input/super-car-trader.sh
       ./git-resource/tasks/super-car-trader/input/super-car-trader.sh
 

@@ -77,7 +77,7 @@ cd concourse-chart/
 helm dependency build
 kubectl create ns dev-ci
 helm -n dev-ci install dev-ci . -f /Users/anmodi/dev/ciscolivedemo/HELM/CONCOURSE/dev-ci-values.yaml
-helm -n dev-ci instakubectl get pods -n dev-cill dev-ci . -f values.yaml
+helm -n dev-ci instakubectl get pods -n dev-ci dev-ci . -f values.yaml
 kubectl get svc -n dev-ci
 
 helm uninstall dev-ci -n dev-ci
