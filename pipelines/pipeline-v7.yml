@@ -1,0 +1,39 @@
+resource_types:
+  - name: vault
+    type: docker-image
+    source:
+      repository: konradkleine/docker-vault-ssh-client
+      tag: latest
+      environment:
+        VAULT_ADDR: http://dev-vault.ciscolivedemo2022.com:8200
+        VAULT_SKIP_VERIFY: "true"
+
+resources:
+  - name: my-tokens
+    type: vault
+    icon: key
+    source:
+      path: concourse
+      token: ((ssh-token.token))
+
+jobs:
+  - name: authenticate
+    plan:
+      - get: my-tokens
+        resource: my-tokens
+      - task: authenticate-with-token
+        config:
+          platform: linux
+          image_resource:
+            type: registry-image
+            source:
+              repository: busybox
+          inputs:
+            - name: my-tokens
+          run:
+            path: sh
+            args:
+              - -exc
+              - |
+                export VAULT_TOKEN=$(cat my-tokens/token)
+                vault login -method=token $VAULT_TOKEN
