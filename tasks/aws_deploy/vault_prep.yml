@@ -12,6 +12,7 @@ inputs:
 
 params:
   UNPACK_ROOTFS: true
+  path: concourse/ssh-token
   VAULT_ADDR: http://dev-vault.ciscolivedemo2022.com:8200
   SSH_TOKEN: ((ssh-token.token))
 
@@ -24,4 +25,3 @@ run:
       ./git-resource/tasks/aws_deploy/vault_prep.sh
 
 
-      
