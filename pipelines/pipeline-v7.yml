@@ -14,7 +14,7 @@ resources:
     icon: key
     source:
       path: concourse
-      token: ((ssh-token.token))
+      token: ((vault-token))
 
 jobs:
   - name: authenticate
