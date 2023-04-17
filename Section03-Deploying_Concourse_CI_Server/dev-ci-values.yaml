@@ -3035,7 +3035,7 @@ secrets:
   ## e.g. "role_id:x,secret_id:x"
   ## Ref: https://concourse-ci.org/vault-credential-manager.html#vault-approle-auth
   ##
-  vaultAuthParam: "role_id:f034005c-2c43-eca1-91ba-c51eeedab2ea,secret_id:17b08afd-744c-1842-9842-6b10c4f7f980"
+  vaultAuthParam: "role_id:29dcef8f-5f27-275f-5a79-b80369fc0713,secret_id:f9cd9ded-0b7e-a855-1ece-9f4d20f6f9fa"
 
   ## provide the client certificate for authenticating with the [TLS](https://www.vaultproject.io/docs/auth/cert.html) backend
   ## the value will be written to /concourse-vault/client.cert

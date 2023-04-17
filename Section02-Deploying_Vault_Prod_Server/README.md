@@ -31,7 +31,7 @@ helm status dev-vault -n dev-vault
 kubectl  get all -n dev-vault
 kubectl exec -it dev-vault-0 -n dev-vault -- vault status
 kubectl exec -it pod/dev-vault-0 -n dev-vault -- vault operator init -n 1 -t 1
-kubectl exec -it pod/dev-vault-0 -n dev-vault -- vault operator unseal FEosw0j/DTg3Dl+Q1qFKHH+5aFIjiiRSAYWl/hb1sT4=
+kubectl exec -it pod/dev-vault-0 -n dev-vault -- vault operator unseal YpK/FtC3uqI/UxGKnEHulFmteP+y5XhBn2Zaej4lcqA=
 #deleting the data in the vault
 helm del --purge vault
 helm uninstall dev-vault -n dev-vault
@@ -85,6 +85,9 @@ path "concourse/main/*" {
   capabilities = ["read", "create","update", "list"]
 }
 
+path "main/*" {
+capabilities = ["read", "create","update", "list"]
+}
 #ciscolivedemo and main secrets
 aws key, secret and ssh.token
 AWS_KEY_ID: ((Access_key_ID.Access_key))
@@ -93,3 +96,5 @@ SSH_TOKEN: ((ssh-token.token))
 
 
 vault token create --policy ciscolivedemo --period 24h
+
+vault token create --policy concourse --period 24h
