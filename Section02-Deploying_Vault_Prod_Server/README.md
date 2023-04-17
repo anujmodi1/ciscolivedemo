@@ -97,4 +97,4 @@ SSH_TOKEN: ((ssh-token.token))
 
 vault token create --policy ciscolivedemo --period 24h
 
-vault token create --policy concourse --period 24h
+vault token create --policy main --period 24h

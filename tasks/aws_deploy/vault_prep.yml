@@ -11,6 +11,7 @@ inputs:
   - name: git-resource
 
 params:
+  path: concourse/main
   VAULT_ADDR: http://dev-vault.ciscolivedemo2022.com:8200
   SSH_TOKEN: ((ssh-token.token))
   #SSH_TOKEN: hvs.CAESIIqne-UfetUL3M7TTymTpqUagxe_g7NxhO1F2YV6Mxe7Gh4KHGh2cy5QbmlJOGpOcnlWaDlnZ3hrTGRmVFNjNE8
