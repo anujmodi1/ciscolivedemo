@@ -17,7 +17,7 @@ params:
   REGION: ap-south-1
   AZ: ap-south-1a
   VAULT_ADDR: http://dev-vault.ciscolivedemo2022.com:8200
-  SSH_TOKEN: ((ssh-token.token))
+  SSH_TOKEN: hvs.CAESILe4umJWqNJEnBJYnziN9rS66XzuPIC6C5fy6FiKqiJBGh4KHGh2cy5jSk5DR3FpSW5NMFJmMTlrcXcwc25UbVY
 
 run:
   path: /bin/sh
