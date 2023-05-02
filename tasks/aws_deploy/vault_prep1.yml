@@ -11,13 +11,13 @@ inputs:
   - name: git-resource
 
 params:
-  AWS_KEY_ID: ((Access_key_ID.Access_key))
-  AWS_KEY: ((Secret_access_key.Secret_access_key))
+#  AWS_KEY_ID: ((Access_key_ID.Access_key))
+#  AWS_KEY: ((Secret_access_key.Secret_access_key))
   NAME: ap-south-1a
   REGION: ap-south-1
   AZ: ap-south-1a
   VAULT_ADDR: http://dev-vault.ciscolivedemo2022.com:8200
-  SSH_TOKEN: ((ssh-token.token))
+# SSH_TOKEN: ((ssh-token.token))
 
 run:
   path: /bin/sh

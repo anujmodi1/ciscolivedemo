@@ -100,3 +100,68 @@ SSH_TOKEN: ((ssh-token.token))
 vault token create --policy ciscolivedemo --period 24h
 
 vault token create --policy concourse --period 24h
+
+**AWS Secrets Engine**
+**Enable the AWS secrets engine:**
+#vault secrets enable aws
+**Configure the credentials that Vault uses to communicate with AWS to generate the IAM credentials:**
+
+vault write aws/config/root \
+access_key=AKIATRT5GRD7QEKXML6S \
+secret_key=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 \
+region=ap-south-1
+
+**Configure a Vault role that maps to a set of permissions in AWS as well as an AWS**
+
+vault write aws/roles/my-role \
+credential_type=iam_user \
+policy_document=-<<EOF
+{
+"Version": "2012-10-17",
+"Statement": [
+{
+"Effect": "Allow",
+"Action": "ec2:*",
+"Resource": "*"
+}
+]
+}
+EOF
+
+or
+
+vault write aws/roles/ec2_admin \
+credential_type=federation_token \
+policy_document=-<<EOF
+{
+"Version": "2012-10-17",
+"Statement": {
+"Effect": "Allow",
+"Action": [
+"ec2:*",
+"sts:GetFederationToken"
+],
+"Resource": "*"
+}
+}
+EOF
+
+**#https://marco-urrea.medium.com/hashicorp-vault-aws-secrets-engine-3297bf3ffbd4**
+
+**https://developer.hashicorp.com/vault/docs/secrets/aws#assumed_role**
+
+
+
+**#Vault accessing the root token**
+VAULT_ADDR=http://prod-vault.devops-ontap.com:8200/
+
+SSH_TOKEN=xxxxxxx
+export VAULT_ADDR=$VAULT_ADDR
+export VAULT_TOKEN=$SSH_TOKEN
+vault login --no-print $VAULT_TOKEN
+
+vault kv get --field=ssh-key concourse/cisco-fso-labs/us-west-1a/key > sshkey.pem
+
+vault kv get --field=keyid_v2 concourse/cisco-fso-labs/intersight/keyid_v2
+
+concourse/cisco-fso-labs/intersight/keyid_v2
