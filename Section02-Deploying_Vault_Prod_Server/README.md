@@ -107,8 +107,8 @@ vault token create --policy concourse --period 24h
 **Configure the credentials that Vault uses to communicate with AWS to generate the IAM credentials:**
 
 vault write aws/config/root \
-access_key=AKIATRT5GRD7QEKXML6S \
-secret_key=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 \
+access_key=xxxxx \
+secret_key=xxxxxx \
 region=ap-south-1
 
 **Configure a Vault role that maps to a set of permissions in AWS as well as an AWS**
