@@ -742,6 +742,14 @@ server:
       #   key_ring    = "vault-helm-unseal-kr"
       #   crypto_key  = "vault-helm-unseal-key"
       #}
+      
+      #seal "awskms" {
+      #   project     = "vault-helm-dev"
+      #    region      = "us-east-1"
+      #    ksm_key_id  = "arn:aws:kms:us-east-1:244001966335:key/3fdcf7e3-ff89-41fc-86f0-35e33eb0f6d3"
+      #   key_ring    = "vault-helm-unseal-kr"
+      #   crypto_key  = "vault-helm-unseal-key"
+      #}
 
       # Example configuration for enabling Prometheus metrics in your config.
       #telemetry {

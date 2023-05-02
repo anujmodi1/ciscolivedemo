@@ -25,7 +25,7 @@ If you wish to upgrade the image tag or chart version, you should first test it 
     - line 607: vaultAuthParam: "role_id:504cc747-f759-f26b-f477-d0de7c1b5bdb,secret_id:c81036b8-c7e1-0681-f427-9872f80d7020"
 - [] Test out your approle_id and secret_id :
 
-curl -k -XPOST -d '{"role_id":"c5b11052-e660-1615-2d99-4337dea60166","secret_id":"00d19ad5-8a45-ab8e-0ae3-d27bb5493914"}'http://prod-vault.devops-ontap.com:8200/v1/auth/approle/login | jq
+curl -k -XPOST -d '{"role_id":"c5b11052-e660-1615-2d99-4337dea60166","secret_id":"b10b019f-81d3-f37d-746e-2d1a6d433377"}'http://prod-vault.devops-ontap.com:8200/v1/auth/approle/login | jq
 
 
 Helm Upgrades

@@ -27,11 +27,13 @@ cd vault-helm/
 helm -n dev-vault install dev-vault hashicorp/vault -f values.yaml
 helm -n dev-vault install dev-vault . -f /Users/anmodi/dev/hashitalkdemo/Section02-Deploying_Vault_Prod_Server/dev-vault-values.yaml
 
+helm -n dev-vault install dev-vault . -f /Users/anmodi/dev/ciscolivedemo/Section02-Deploying_Vault_Prod_Server/vault-latest-values.yaml
+
 helm status dev-vault -n dev-vault
 kubectl  get all -n dev-vault
 kubectl exec -it dev-vault-0 -n dev-vault -- vault status
 kubectl exec -it pod/dev-vault-0 -n dev-vault -- vault operator init -n 1 -t 1
-kubectl exec -it pod/dev-vault-0 -n dev-vault -- vault operator unseal YpK/FtC3uqI/UxGKnEHulFmteP+y5XhBn2Zaej4lcqA=
+kubectl exec -it pod/dev-vault-0 -n dev-vault -- vault operator unseal 25YtmVR1vuHJshj6SkrUkZdqM8IXwmcX1LQGAW3aOzk=
 #deleting the data in the vault
 helm del --purge vault
 helm uninstall dev-vault -n dev-vault
@@ -81,7 +83,7 @@ path "concourse/ciscolivedemo/*" {
   capabilities = ["read", "create","update", "list"]
 }
 
-path "concourse/main/*" {
+path "concourse/*" {
   capabilities = ["read", "create","update", "list"]
 }
 
@@ -97,4 +99,4 @@ SSH_TOKEN: ((ssh-token.token))
 
 vault token create --policy ciscolivedemo --period 24h
 
-vault token create --policy main --period 24h
+vault token create --policy concourse --period 24h
