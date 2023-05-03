@@ -17,7 +17,7 @@ If you wish to upgrade the image tag or chart version, you should first test it 
       pipelineSecretTemplate: /concourse/{{.Team}}/{{.Pipeline}}/{{.Secret}}
 
 - [] Before installing, update the ci user password in the values file on line 2788 from $PASSWORD to something new
-    - line 2789:localUsers: "ci:cisco@2022,ap-south-1a:ap-south-1a!"
+    - line 2789:localUsers: "ci:cisco@2022,ap-south-1a:ap-south-1a!,us-east-1a:us-east-1a!"
 - [] Update your vault url and also your concourse web external url
     - line 250: externalUrl: http://dev-ci.ciscolivedemo2022.com:8080
     - line 568: url: http://dev-vault.ciscolivedemo2022.com:8200
@@ -25,8 +25,16 @@ If you wish to upgrade the image tag or chart version, you should first test it 
     - line 607: vaultAuthParam: "role_id:504cc747-f759-f26b-f477-d0de7c1b5bdb,secret_id:c81036b8-c7e1-0681-f427-9872f80d7020"
 - [] Test out your approle_id and secret_id :
 
-curl -k -XPOST -d '{"role_id":"c5b11052-e660-1615-2d99-4337dea60166","secret_id":"b10b019f-81d3-f37d-746e-2d1a6d433377"}'http://prod-vault.devops-ontap.com:8200/v1/auth/approle/login | jq
+curl -k -XPOST -d '{"role_id":"xxxxx","secret_id":"xxxxx"}'http://prod-vault.devops-ontap.com:8200/v1/auth/approle/login | jq
 
+curl -X 'POST' \
+'http://dev-vault.ciscolivedemo2022.com:8200/v1/auth/approle/login' \
+-H 'accept: */*' \
+-H 'Content-Type: application/json' \
+-d '{
+"role_id": "8859e13f-8011-707f-3725-4c99ee700eef",
+"secret_id": "04137195-8356-a705-2e3e-6187d9e210b1"
+}' | jq
 
 Helm Upgrades
 ======
@@ -70,8 +78,9 @@ helm repo add bitnami https://charts.bitnami.com/bitnami
 cd concourse-chart/
 helm dependency build
 kubectl create ns dev-ci
-helm -n dev-ci install dev-ci . -f /Users/anmodi/dev/hashitalkdemo/Section03-Deploying_Concourse_CI_Server/dev-ci-values.yaml
 helm -n dev-ci install dev-ci . -f values.yaml
+helm -n dev-ci install dev-ci . -f /Users/anmodi/dev/ciscolivedemo/Section03-Deploying_Concourse_CI_Server/dev-ci-values.yaml
+
 kubectl get svc -n dev-ci
 kubectl get pods -n dev-ci
 helm uninstall dev-ci -n dev-ci
@@ -96,3 +105,5 @@ fly -t target set-team -n ciscolivedemo -c operator-role.yml
 fly -t target set-pipeline -p pipeline1 -c /Users/anmodi/dev/hashitalkdemo/Section03-Deploying_Concourse_CI_Server/pipeline-v4.yml -l /Users/anmodi/dev/notes-hashitalkdemo/hashitalk-params.yml -v aws.region=ap-south-1 -v az.name=ap-south-1a -v vault.addr=http://dev-vault.ciscolivedemo2022.com:8200
 
 fly -t target set-pipeline -p pipeline6 -c /Users/anmodi/dev/ciscolivedemo/pipelines/pipeline-v6.yml -l /Users/anmodi/dev/notes/params.yml -v aws.region=ap-south-1 -v az.name=ap-south-1a -v vault.addr=http://dev-vault.ciscolivedemo2022.com:8200
+
+fly -t target set-pipeline -p pipeline6 -c /Users/anmodi/dev/ciscolivedemo/pipelines/pipeline-v6-anuj.yml -l /Users/anmodi/dev/notes/params.yml -v aws.region=us-east-1 -v az.name=us-east-1a -v vault.addr=http://dev-vault.ciscolivedemo2022.com:8200

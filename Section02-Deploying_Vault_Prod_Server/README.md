@@ -33,7 +33,7 @@ helm status dev-vault -n dev-vault
 kubectl  get all -n dev-vault
 kubectl exec -it dev-vault-0 -n dev-vault -- vault status
 kubectl exec -it pod/dev-vault-0 -n dev-vault -- vault operator init -n 1 -t 1
-kubectl exec -it pod/dev-vault-0 -n dev-vault -- vault operator unseal 25YtmVR1vuHJshj6SkrUkZdqM8IXwmcX1LQGAW3aOzk=
+kubectl exec -it pod/dev-vault-0 -n dev-vault -- vault operator unseal xxxxxxxx
 #deleting the data in the vault
 helm del --purge vault
 helm uninstall dev-vault -n dev-vault
@@ -150,7 +150,7 @@ EOF
 
 **https://developer.hashicorp.com/vault/docs/secrets/aws#assumed_role**
 
-
+https://developer.hashicorp.com/vault/docs/auth
 
 **#Vault accessing the root token**
 VAULT_ADDR=http://prod-vault.devops-ontap.com:8200/

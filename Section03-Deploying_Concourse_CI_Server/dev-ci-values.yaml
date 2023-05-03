@@ -603,8 +603,8 @@ concourse:
       ## and provide a value in secrets (field `vault-client-auth-param`).
       ##
       useAuthParam: true
-      vault-client-auth-param: "role_id:f00f80a2-4655-7eb9-d583-ed46593c9cbc,secret_id:b10b019f-81d3-f37d-746e-2d1a6d433377"
-      vaultAuthParam: "role_id:f00f80a2-4655-7eb9-d583-ed46593c9cbc,secret_id:b10b019f-81d3-f37d-746e-2d1a6d433377"
+      vault-client-auth-param: "role_id:8859e13f-8011-707f-3725-4c99ee700eef,secret_id:04137195-8356-a705-2e3e-6187d9e210b1"
+      vaultAuthParam: "role_id:8859e13f-8011-707f-3725-4c99ee700eef,secret_id:04137195-8356-a705-2e3e-6187d9e210b1"
 
       ## Path to a directory of PEMEncoded CA cert files to verify the vault server SSL cert.
       ##
@@ -2786,7 +2786,7 @@ secrets:
   ## List of `username:password` or `username:bcrypted_password` combinations for all your local concourse users.
   ## For details of expected format, see https://concourse-ci.org/local-auth.html
   ##
-  localUsers: "ci:cisco@2022,ap-south-1a:ap-south-1a!"
+  localUsers: "ci:cisco@2022,ap-south-1a:ap-south-1a!,us-east-1a:us-east-1a!"
 
   ## The TLS certificate and private key for the web component to be able to terminate
   ## TLS connections.

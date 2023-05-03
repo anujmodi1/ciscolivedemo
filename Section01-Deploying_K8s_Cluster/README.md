@@ -35,10 +35,15 @@ aws iam create-user --user-name kops
 aws iam add-user-to-group --user-name kops --group-name kops
 aws iam create-access-key --user-name kops
 
+#Remove group and users
+aws iam remove-user-from-group --user-name kops --group-name kops
+aws iam delete-group --group-name kops
+
 **AWS Access Key ID and Secret Config**
 aws configure --profile kops
 aws s3 ls --profile kops
 export AWS_PROFILE=default
+export AWS_PROFILE=cisco-gprs-arch-india
 export AWS_PROFILE=kops
 cat ~/.aws/credentials
 aws iam list-users
@@ -59,7 +64,11 @@ dig ns ciscolivedemo2022.com
 **Creating s3 bucket**
 aws s3api create-bucket \
 --bucket cisco-fso-labs-kops-state \
---region us-west-1
+--region us-east-1
+
+aws s3api create-bucket \
+--bucket ciscolivedemo2022-kops-state \
+--region us-east-1
 
 aws s3api create-bucket \
 --bucket ciscolivedemo2022-kops-state \
@@ -67,11 +76,18 @@ aws s3api create-bucket \
 --create-bucket-configuration LocationConstraint=ap-south-1
 
 #Enable versioning
-aws s3api put-bucket-versioning --bucket ciscolivedemo-kops-state  --versioning-configuration Status=Enabled
+aws s3api put-bucket-versioning --bucket ciscolivedemo2022-kops-state  --versioning-configuration Status=Enabled
 #export variables
 #export NAME=cluster1.k8s.local
 export NAME=k8s.ciscolivedemo2022.com
 export KOPS_STATE_STORE=s3://ciscolivedemo2022-kops-state
+
+#Empty bucket , it doesn't delete the all the content, better to detete GUI
+aws s3 rm s3://ciscolivedemo2022-kops-state --recursive
+#Delete bucket
+aws s3api delete-bucket --bucket ciscolivedemo2022-kops-state --region ap-south-1
+aws s3api delete-bucket --bucket  cisco-fso-labs-kops-state --region us-east-1
+
 
 #kops export kubeconfig $NAME --admin
 
@@ -80,6 +96,7 @@ kops create cluster --name=${NAME} --cloud=aws --zones=us-west-1a --master-size 
 kops create cluster --name=${NAME} --cloud=aws --zones=us-west-1a --master-size t2.medium --node-size t2.medium
 kops create cluster --name=${NAME} --cloud=aws --zones=us-west-1a --master-size t2.micro --node-size t2.micro --kubernetes-version 1.20.15
 kops create cluster --name=${NAME} --cloud=aws --zones=ap-south-1a --master-size t2.medium --node-size t2.medium
+kops create cluster --name=${NAME} --cloud=aws --zones=us-east-1a --master-size t2.medium --node-size t2.medium
 kops get cluster
 kops edit cluster ${NAME}
 #kops update cluster --name ${NAME} --yes --admin
