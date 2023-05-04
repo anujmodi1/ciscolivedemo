@@ -1,0 +1,39 @@
+display:
+  background_image: https://tetacourse.com/uploads/posts/2020-07/1595211523_1.jpg
+jobs:
+  - name: lab-prep
+    plan:
+      - get: git-resource
+        trigger: true
+      - task: lab_prep
+        file: git-resource/Section05_Building_the_Pipeline/input/vault_prep.yml
+
+  - name: california
+    public: true
+    plan:
+      - get: git-resource
+        passed: [lab-prep]
+      - task: aws_deploy_key
+        file: git-resource/Section05_Building_the_Pipeline/input/california/aws_key_deploy.yml
+      - task: aws_deploy_vpc
+        file: git-resource/Section05_Building_the_Pipeline/input/california/aws_env_deploy.yml
+      - task: aws_deploy_ubuntu_california
+        file: git-resource/Section05_Building_the_Pipeline/input/california/aws_deploy_ubuntu.yml
+
+  - name: super-car-trader
+    public: true
+    plan:
+      - get: git-resource
+      - task: aws_super_car_trader
+        file: git-resource/Section05_Building_the_Pipeline/input/california/input/super-car-trader.yml
+
+resource_types:
+resources:
+  - name: git-resource
+    source:
+      Username: ((Username))
+      branch: ((git-branch))
+      email: ((email))
+      private_key: ((private_key))
+      uri: ((git-uri))
+    type: git

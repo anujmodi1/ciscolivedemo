@@ -33,7 +33,7 @@ helm status dev-vault -n dev-vault
 kubectl  get all -n dev-vault
 kubectl exec -it dev-vault-0 -n dev-vault -- vault status
 kubectl exec -it pod/dev-vault-0 -n dev-vault -- vault operator init -n 1 -t 1
-kubectl exec -it pod/dev-vault-0 -n dev-vault -- vault operator unseal xxxxxxxx
+kubectl exec -it pod/dev-vault-0 -n dev-vault -- vault operator unseal xxxxx
 #deleting the data in the vault
 helm del --purge vault
 helm uninstall dev-vault -n dev-vault
@@ -99,7 +99,7 @@ SSH_TOKEN: ((ssh-token.token))
 
 vault token create --policy ciscolivedemo --period 24h
 
-vault token create --policy concourse --period 24h
+vault token create --policy main --period 24h
 
 **AWS Secrets Engine**
 **Enable the AWS secrets engine:**

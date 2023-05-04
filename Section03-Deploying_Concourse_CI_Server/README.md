@@ -80,10 +80,14 @@ helm dependency build
 kubectl create ns dev-ci
 helm -n dev-ci install dev-ci . -f values.yaml
 helm -n dev-ci install dev-ci . -f /Users/anmodi/dev/ciscolivedemo/Section03-Deploying_Concourse_CI_Server/dev-ci-values.yaml
+helm -n dev-ci install dev-ci . -f /Users/anmodi/dev/ciscolivedemo/Section03-Deploying_Concourse_CI_Server/ci-values-latest.yaml
 
+kubectl get all -n dev-ci
 kubectl get svc -n dev-ci
 kubectl get pods -n dev-ci
 helm uninstall dev-ci -n dev-ci
+
+vault token create --policy main --period 600h
 
 Note down the loadbalance fqdn from the list
 #Paste on browser to check if concourse is accessible externally, add 8080 port no.
@@ -107,3 +111,5 @@ fly -t target set-pipeline -p pipeline1 -c /Users/anmodi/dev/hashitalkdemo/Secti
 fly -t target set-pipeline -p pipeline6 -c /Users/anmodi/dev/ciscolivedemo/pipelines/pipeline-v6.yml -l /Users/anmodi/dev/notes/params.yml -v aws.region=ap-south-1 -v az.name=ap-south-1a -v vault.addr=http://dev-vault.ciscolivedemo2022.com:8200
 
 fly -t target set-pipeline -p pipeline6 -c /Users/anmodi/dev/ciscolivedemo/pipelines/pipeline-v6-anuj.yml -l /Users/anmodi/dev/notes/params.yml -v aws.region=us-east-1 -v az.name=us-east-1a -v vault.addr=http://dev-vault.ciscolivedemo2022.com:8200
+
+fly -t target set-pipeline -p pipeline1 -c /Users/anmodi/dev/ciscolivedemo/Section05_Building_the_Pipeline/pipeline_v1.yml -l /Users/anmodi/dev/notes/params.yml -v aws.region=us-east-1 -v az.name=us-east-1a -v vault.addr=http://dev-vault.ciscolivedemo2022.com:8200
