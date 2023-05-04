@@ -20,7 +20,7 @@ run:
   args:
     - -ce
     - |
-      chmod a+x git-resource/tasks/aws_deploy/vault_prep.sh
-      ./git-resource/tasks/aws_deploy/vault_prep.sh
+      chmod a+x git-resource/Section05_Building_the_Pipeline/input/vault_prep.sh
+      ./git-resource/Section05_Building_the_Pipeline/input/vault_prep.sh
 
 
