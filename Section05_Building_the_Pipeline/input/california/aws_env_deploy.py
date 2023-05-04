@@ -14,7 +14,7 @@ sg_name=NAME
 #Inject the vault var vals into the ephemeral oci build container
 
 #VAULT_TOKEN = os.getenv('VAULT_TOKEN')
-url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "key_name"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/main/" + name + "/" + "key_name"
 headers = CaseInsensitiveDict()
 headers["X-Vault-Token"] = VAULT_TOKEN
 headers["Content-Type"] = "application/json"
@@ -253,36 +253,36 @@ print("Output: \n{}\n".format(output))
 
 
 #13 - Create a Security Group
-out_file_sg_cisco-fso-labs='outfile-sg-public.json'
+out_file_sg_main='outfile-sg-public.json'
 cmd_security_group='aws ec2 create-security-group --group-name --region' + " " + "{}".format(region) + " " + " " + "{}".format(sg_name) + " " + '--description' + " " + "{}".format(sg_name) + " " + '--vpc-id' + " " + "{}".format(vpcid)
 output = check_output("{}".format(cmd_security_group), shell=True).decode().strip()
 print("Output: \n{}\n".format(output))
-with open(out_file_sg_cisco-fso-labs, 'w') as my_file:
+with open(out_file_sg_main, 'w') as my_file:
     my_file.write(output)
-with open (out_file_sg_cisco-fso-labs) as access_json:
+with open (out_file_sg_main) as access_json:
     read_content = json.load(access_json)
     question_access = read_content['GroupId']
-    cisco-fso-labs_sg_id=question_access
-    cisco-fso-labs_sg_id_var=('cisco-fso-labs_sg_id=' + "'" + "{}".format(cisco-fso-labs_sg_id) + "'")
-    print(cisco-fso-labs_sg_id_var)
+    main_sg_id=question_access
+    main_sg_id_var=('main_sg_id=' + "'" + "{}".format(main_sg_id) + "'")
+    print(main_sg_id_var)
 with open(outfile_vars, 'a+') as my_file:
-    my_file.write(cisco-fso-labs_sg_id_var + "\n")
+    my_file.write(main_sg_id_var + "\n")
 
 #Create inbound rule on the security group to allow SSH
 #aws ec2 authorize-security-group-ingress --group-id sg-1234567890abcdef0 --protocol tcp --port 22 --cidr 0.0.0.0/0
-auth_inbound_ssh='aws ec2 authorize-security-group-ingress --region' + " " + "{}".format(region) + " " + '--group-id' + " " "{}".format(cisco-fso-labs_sg_id) + " " + '--protocol tcp --port 22 --cidr 0.0.0.0/0'
+auth_inbound_ssh='aws ec2 authorize-security-group-ingress --region' + " " + "{}".format(region) + " " + '--group-id' + " " "{}".format(main_sg_id) + " " + '--protocol tcp --port 22 --cidr 0.0.0.0/0'
 output = check_output("{}".format(auth_inbound_ssh), shell=True).decode().strip()
 print("Output: \n{}\n".format(output))
 
 #Create inbound rule on the security group to allow 8443
 #aws ec2 authorize-security-group-ingress --group-id sg-1234567890abcdef0 --protocol tcp --port 22 --cidr 0.0.0.0/0
-auth_inbound_ssh='aws ec2 authorize-security-group-ingress --region' + " " + "{}".format(region) + " " + '--group-id' + " " "{}".format(cisco-fso-labs_sg_id) + " " + '--protocol tcp --port 8443 --cidr 0.0.0.0/0'
+auth_inbound_ssh='aws ec2 authorize-security-group-ingress --region' + " " + "{}".format(region) + " " + '--group-id' + " " "{}".format(main_sg_id) + " " + '--protocol tcp --port 8443 --cidr 0.0.0.0/0'
 output = check_output("{}".format(auth_inbound_ssh), shell=True).decode().strip()
 print("Output: \n{}\n".format(output))
 
 #Create inbound rule on the security group to allow 830
 #aws ec2 authorize-security-group-ingress --group-id sg-1234567890abcdef0 --protocol tcp --port 22 --cidr 0.0.0.0/0
-auth_inbound_ssh='aws ec2 authorize-security-group-ingress --region' + " " + "{}".format(region) + " " + '--group-id' + " " "{}".format(cisco-fso-labs_sg_id) + " " + '--protocol tcp --port 830 --cidr 0.0.0.0/0'
+auth_inbound_ssh='aws ec2 authorize-security-group-ingress --region' + " " + "{}".format(region) + " " + '--group-id' + " " "{}".format(main_sg_id) + " " + '--protocol tcp --port 830 --cidr 0.0.0.0/0'
 output = check_output("{}".format(auth_inbound_ssh), shell=True).decode().strip()
 print("Output: \n{}\n".format(output))
 
@@ -290,13 +290,13 @@ print("Output: \n{}\n".format(output))
 
 #Create inbound rule on the security group to allow 830
 #aws ec2 authorize-security-group-ingress --group-id sg-1234567890abcdef0 --protocol tcp --port 22 --cidr 0.0.0.0/0
-auth_inbound_ssh='aws ec2 authorize-security-group-ingress --region' + " " + "{}".format(region) + " " + '--group-id' + " " "{}".format(cisco-fso-labs_sg_id) + " " + '--ip-permissions IpProtocol=tcp,FromPort=23456,ToPort=24156,IpRanges=' + "'[{CidrIp=0.0.0.0/0}]'''"
+auth_inbound_ssh='aws ec2 authorize-security-group-ingress --region' + " " + "{}".format(region) + " " + '--group-id' + " " "{}".format(main_sg_id) + " " + '--ip-permissions IpProtocol=tcp,FromPort=23456,ToPort=24156,IpRanges=' + "'[{CidrIp=0.0.0.0/0}]'''"
 print(auth_inbound_ssh)
 output = check_output("{}".format(auth_inbound_ssh), shell=True).decode().strip()
 print("Output: \n{}\n".format(output))
 
 #aws ec2 authorize-security-group-ingress --group-id sg-1234567890abcdef0 --protocol tcp --port 22 --cidr 0.0.0.0/0
-auth_inbound_ssh='aws ec2 authorize-security-group-ingress --region' + " " + "{}".format(region) + " " + '--group-id' + " " "{}".format(cisco-fso-labs_sg_id) + " " + '--ip-permissions IpProtocol=udp,FromPort=12346,ToPort=13046,IpRanges=' + "'[{CidrIp=0.0.0.0/0}]'''"
+auth_inbound_ssh='aws ec2 authorize-security-group-ingress --region' + " " + "{}".format(region) + " " + '--group-id' + " " "{}".format(main_sg_id) + " " + '--ip-permissions IpProtocol=udp,FromPort=12346,ToPort=13046,IpRanges=' + "'[{CidrIp=0.0.0.0/0}]'''"
 output = check_output("{}".format(auth_inbound_ssh), shell=True).decode().strip()
 print("Output: \n{}\n".format(output))
 
@@ -306,7 +306,7 @@ print("Output: \n{}\n".format(output))
 #Write Key to vault
 
 #Write vpcid  to the vault
-url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "vpcid"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/main/" + name + "/" + "vpcid"
 
 headers = CaseInsensitiveDict()
 headers["X-Vault-Token"] = VAULT_TOKEN
@@ -321,7 +321,7 @@ print(resp.status_code)
 
 #3 Write the subnetid_public to the vault
 
-url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "subnetid_public"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/main/" + name + "/" + "subnetid_public"
 
 headers = CaseInsensitiveDict()
 headers["X-Vault-Token"] = VAULT_TOKEN
@@ -335,7 +335,7 @@ print(resp.status_code)
 
 #4 Write the subnetid_mgmt to the vault
 
-url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "subnetid_mgmt"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/main/" + name + "/" + "subnetid_mgmt"
 
 headers = CaseInsensitiveDict()
 headers["X-Vault-Token"] = VAULT_TOKEN
@@ -349,7 +349,7 @@ print(resp.status_code)
 
 #5 Write the igid to the vault
 
-url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "igid"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/main/" + name + "/" + "igid"
 
 headers = CaseInsensitiveDict()
 headers["X-Vault-Token"] = VAULT_TOKEN
@@ -363,7 +363,7 @@ print(resp.status_code)
 
 #10 - Write rt_mgmt_id to the vault
 
-url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "rt_mgmt_id"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/main/" + name + "/" + "rt_mgmt_id"
 
 headers = CaseInsensitiveDict()
 headers["X-Vault-Token"] = VAULT_TOKEN
@@ -376,7 +376,7 @@ resp = requests.post(url, headers=headers, json=data_json)
 print(resp.status_code)
 
 #11 - Write rt_mgmt_id to the vault
-url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "rt_mgmt_id"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/main/" + name + "/" + "rt_mgmt_id"
 
 headers = CaseInsensitiveDict()
 headers["X-Vault-Token"] = VAULT_TOKEN
@@ -388,9 +388,9 @@ data_json = {"rt_mgmt_id": rt_mgmt_id }
 resp = requests.post(url, headers=headers, json=data_json)
 print(resp.status_code)
 
-#13 - Write the cisco-fso-labs_sg_id to the vault
+#13 - Write the main_sg_id to the vault
 
-url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "cisco-fso-labs_sg_id"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/main/" + name + "/" + "main_sg_id"
 print(url)
 
 headers = CaseInsensitiveDict()
@@ -398,7 +398,7 @@ headers["X-Vault-Token"] = VAULT_TOKEN
 headers["Content-Type"] = "application/json"
 
 #data = f'{{"token": "{TOKEN}"}}'
-data_json = {"cisco-fso-labs_sg_id": cisco-fso-labs_sg_id }
+data_json = {"main_sg_id": main_sg_id }
 
 resp = requests.post(url, headers=headers, json=data_json)
 print(resp)

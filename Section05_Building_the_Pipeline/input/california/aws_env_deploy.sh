@@ -4,4 +4,4 @@ export VAULT_ADDR=$VAULT_ADDR
 export VAULT_TOKEN=$SSH_TOKEN
 vault login --no-print $VAULT_TOKEN
 export NAME=$NAME
-python3 git-resource/tasks/aws_deploy/california/aws-deploy-env-train.py
+python3 git-resource/Section05_Building_the_Pipeline/inputy/california/aws-deploy-env-train.py

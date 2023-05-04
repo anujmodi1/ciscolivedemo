@@ -11,7 +11,7 @@ NAME = os.getenv('NAME')
 
 #Write the lab vars to the vault under the name which is the az name
 
-url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "region"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/main/" + name + "/" + "region"
 
 headers = CaseInsensitiveDict()
 headers["X-Vault-Token"] = VAULT_TOKEN
@@ -24,7 +24,7 @@ resp = requests.post(url, headers=headers, json=data_json)
 print(resp.status_code)
 
 
-url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "az"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/main/" + name + "/" + "az"
 
 headers = CaseInsensitiveDict()
 headers["X-Vault-Token"] = VAULT_TOKEN
@@ -36,7 +36,7 @@ data_json = {"az": az }
 resp = requests.post(url, headers=headers, json=data_json)
 print(resp.status_code)
 
-url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "ubuntu_ami_id"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/main/" + name + "/" + "ubuntu_ami_id"
 
 headers = CaseInsensitiveDict()
 headers["X-Vault-Token"] = VAULT_TOKEN
@@ -48,7 +48,7 @@ data_json = {"ubuntu_ami_id": ubuntu_ami_id }
 resp = requests.post(url, headers=headers, json=data_json)
 print(resp.status_code)
 
-url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "centos_ami_id"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/main/" + name + "/" + "centos_ami_id"
 
 headers = CaseInsensitiveDict()
 headers["X-Vault-Token"] = VAULT_TOKEN
@@ -60,7 +60,7 @@ data_json = {"centos_ami_id": centos_ami_id }
 resp = requests.post(url, headers=headers, json=data_json)
 print(resp.status_code)
 
-url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "vault_addr"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/main/" + name + "/" + "vault_addr"
 
 headers = CaseInsensitiveDict()
 headers["X-Vault-Token"] = VAULT_TOKEN
@@ -72,7 +72,7 @@ data_json = {"vaut_addr": vault_addr }
 resp = requests.post(url, headers=headers, json=data_json)
 print(resp.status_code)
 
-url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "name"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/main/" + name + "/" + "name"
 
 headers = CaseInsensitiveDict()
 headers["X-Vault-Token"] = VAULT_TOKEN

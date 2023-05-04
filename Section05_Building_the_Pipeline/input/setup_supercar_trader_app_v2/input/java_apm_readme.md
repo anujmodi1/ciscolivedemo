@@ -26,7 +26,7 @@ Pushed the customized version to the vault in base 64 or not...for lab maybe not
 
 
 Done in Advance by Instructor..
-vault kv put concourse/cisco-fso-labs/appd-controller-info data=$(base64 < /Users/sconrod/API-Trainings/dev/ARCH/cisco-fso-labs/controller-info.xml)
+vault kv put concourse/main/appd-controller-info data=$(base64 < /Users/sconrod/API-Trainings/dev/ARCH/main/controller-info.xml)
 
 
 Manual Steps if you like....
@@ -45,12 +45,12 @@ unzip *.zip
 
 Prepare the controller-info.xml file in advance and save to the vault.....
 example......
-vault kv put concourse/cisco-fso-labs/appd-controller-info data=$(base64 < /Users/sconrod/API-Trainings/dev/ARCH/cisco-fso-labs/controller-info.xml)
+vault kv put concourse/main/appd-controller-info data=$(base64 < /Users/sconrod/API-Trainings/dev/ARCH/main/controller-info.xml)
 
 Now any code calling this will call....
 
 Get the controller-info.xml file out of the vault
-vault kv get -field data concourse/cisco-fso-labs/appd-controller-info | base64 -d > /opt/appdynamics/javaagent/ver22.4.0.33722/conf/controller-info.xml
+vault kv get -field data concourse/main/appd-controller-info | base64 -d > /opt/appdynamics/javaagent/ver22.4.0.33722/conf/controller-info.xml
 
 These fields have been customized and the file pushed to the vault already to save time in the lab.....
 controller-host

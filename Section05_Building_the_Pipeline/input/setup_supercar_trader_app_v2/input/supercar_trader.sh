@@ -10,9 +10,9 @@ export KOPS_STATE_STORE=s3://lab-kube.k8s.local
 kops export kubecfg --admin
 vault login --no-print $SSH_TOKEN
 mkdir ~/.kube
-vault kv get -field kubeconfig concourse/cisco-fso-labs/lab-kube-config > ~/.kube/config
+vault kv get -field kubeconfig concourse/main/lab-kube-config > ~/.kube/config
 kubectl create ns supercar
-#vault kv get -field data concourse/cisco-fso-labs/supercar-values | base64 -d > values.yaml
+#vault kv get -field data concourse/main/supercar-values | base64 -d > values.yaml
 kubectl -n supercar delete deploy --all
 helm -n supercar delete mysql
 kubectl -n supercar delete pvc --all

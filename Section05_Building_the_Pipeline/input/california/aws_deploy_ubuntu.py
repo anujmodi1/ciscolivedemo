@@ -80,7 +80,7 @@ with open(outfile_router_pub_ip) as access_json:
     print(router_pub_ip)
 
 #Write the ubuntu_instance_id to the vault
-url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "ubuntu_instance_id"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/main/" + name + "/" + "ubuntu_instance_id"
 print(url)
 
 headers = CaseInsensitiveDict()
@@ -96,7 +96,7 @@ print(resp.status_code)
 print(name)
 
 #Write the ubuntu public ip on the router subnet to the vault
-url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/cisco-fso-labs/" + name + "/" + "ubuntu_ip"
+url = "http://dev-vault.ciscolivedemo2022.com:8200/v1/concourse/main/" + name + "/" + "ubuntu_ip"
 print(url)
 
 headers = CaseInsensitiveDict()

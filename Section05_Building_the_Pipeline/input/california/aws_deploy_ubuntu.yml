@@ -35,8 +35,8 @@ run:
       aws configure set aws_secret_access_key $AWS_KEY
       aws configure set default.region $REGION
       aws sts get-caller-identity --query Account --output text
-      export router_sg_id=$(vault kv get --field=router_sg_id concourse/cisco-fso-labs/$NAME/router_sg_id)
-      chmod a+x git-resource/tasks/aws_deploy/california/aws_deploy_ubuntu.sh
-      ./git-resource/tasks/aws_deploy/california/aws_deploy_ubuntu.sh
+      export router_sg_id=$(vault kv get --field=router_sg_id concourse/main/$NAME/router_sg_id)
+      chmod a+x git-resource/Section05_Building_the_Pipeline/input/california/aws_deploy_ubuntu.sh
+      ./git-resource/Section05_Building_the_Pipeline/input/california/aws_deploy_ubuntu.sh
 
       

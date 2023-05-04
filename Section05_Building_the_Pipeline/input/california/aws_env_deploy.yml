@@ -33,8 +33,8 @@ run:
       aws configure set aws_secret_access_key $AWS_KEY
       aws configure set default.region $REGION
       aws sts get-caller-identity --query Account --output text
-      chmod a+x git-resource/tasks/aws_deploy/california/aws_env_deploy.sh
-      ./git-resource/tasks/aws_deploy/california/aws_env_deploy.sh
+      chmod a+x git-resource/Section05_Building_the_Pipeline/input/california/aws_env_deploy.sh
+      ./git-resource/Section05_Building_the_Pipeline/input/california/aws_env_deploy.sh
 
 
       
