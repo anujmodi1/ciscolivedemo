@@ -31,7 +31,7 @@ helm status dev-vault -n dev-vault
 kubectl  get all -n dev-vault
 kubectl exec -it dev-vault-0 -n dev-vault -- vault status
 kubectl exec -it pod/dev-vault-0 -n dev-vault -- vault operator init -n 1 -t 1
-kubectl exec -it pod/dev-vault-0 -n dev-vault -- vault operator unseal 7zr+S5FfqmYIdaIKb/NPXktR2UQsUakh2jmPzGD/ysw=
+kubectl exec -it pod/dev-vault-0 -n dev-vault -- vault operator unseal xxxxx
 #deleting the data in the vault
 helm del --purge vault
 helm uninstall dev-vault -n dev-vault
