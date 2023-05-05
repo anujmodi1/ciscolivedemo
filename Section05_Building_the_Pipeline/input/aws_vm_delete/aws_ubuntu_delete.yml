@@ -16,6 +16,8 @@ params:
   NAME: us-west-1a
   VAULT_ADDR: http://dev-vault.ciscolivedemo2022.com:8200
   SSH_TOKEN: ((ssh-token.token))
+  AZ: us-west-1a
+  REGION: us-west-1
 
 run:
   path: /bin/sh
