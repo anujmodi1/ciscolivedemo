@@ -13,7 +13,7 @@ inputs:
 params:
   AWS_KEY_ID: ((Access_key_ID.Access_key))
   AWS_KEY: ((Secret_access_key.Secret_access_key))
-  NAME: us-west-2a
+  NAME: us-west-1a
   VAULT_ADDR: http://dev-vault.ciscolivedemo2022.com:8200
   SSH_TOKEN: ((ssh-token.token))
 
