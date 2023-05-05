@@ -30,10 +30,9 @@ run:
       vault login --no-print $VAULT_TOKEN
       aws configure set aws_access_key_id $AWS_KEY_ID
       aws configure set aws_secret_access_key $AWS_KEY
-      aws configure set default.region $REGION
-      #aws sts get-caller-identity --query Account --output text 
-      chmod a+x git-resource/Section05_Building_the_Pipeline/input/aws_delete/aws_vpc_delete.sh
-      ./git-resource/Section05_Building_the_Pipeline/input/aws_delete/aws_vpc_delete.sh
+      aws configure set default.region $REGION 
+      chmod a+x git-resource/Section05_Building_the_Pipeline/input/aws_vm_delete/aws_vpc_delete.sh
+      ./git-resource/Section05_Building_the_Pipeline/input/aws_vm_delete/aws_vpc_delete.sh
       
 
 
