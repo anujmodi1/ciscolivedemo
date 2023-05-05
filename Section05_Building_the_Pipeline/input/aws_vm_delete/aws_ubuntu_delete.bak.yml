@@ -30,15 +30,16 @@ run:
       export VAULT_ADDR=$VAULT_ADDR
       export VAULT_TOKEN=$SSH_TOKEN
       vault login --no-print $VAULT_TOKEN
-      export REGION=$REGION
-      export AZ=$AZ
+      export REGION=$(vault kv get --field=region concourse/main/$NAME/region)
+      export AZ=$(vault kv get --field=az concourse/main/$NAME/az)
       echo $REGION
       echo $AZ
       aws configure set aws_access_key_id $AWS_KEY_ID
       aws configure set aws_secret_access_key $AWS_KEY
       aws configure set default.region $REGION
-      chmod a+x git-resource/Section05_Building_the_Pipeline/input/aws_vm_delete/aws_ubuntu_delete.sh
-      ./git-resource/Section05_Building_the_Pipeline/input/aws_vm_delete/aws_ubuntu_delete.sh
+      aws sts get-caller-identity --query Account --output text 
+      chmod a+x git-resource/Section05_Building_the_Pipeline/input/aws_delete/aws_ubuntu_delete.sh
+      ./git-resource/Section05_Building_the_Pipeline/input/aws_delete/aws_ubuntu_delete.sh
     
 
 
