@@ -26,9 +26,9 @@ jobs:
       - get: git-resource
         passed: [aws_vm_deploy]
       - task: delete-aws-vpc
-        file: git-resource/tasks/aws_delete/aws_vpc_delete.yml
+        file: git-resource/Section05_Building_the_Pipeline/input/aws_vm_delete/aws_vpc_delete.yml
       - task: delete-aws-ubuntu
-        file: git-resource/tasks/aws_delete/aws_ubuntu_delete.yml
+        file: git-resource/Section05_Building_the_Pipeline/input/aws_vm_delete/aws_ubuntu_delete.yml
 
   - name: super-car-trader
     public: true
