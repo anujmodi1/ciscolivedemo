@@ -12,7 +12,7 @@ vault kv list concourse/main/
 #this scripts imports the lab.vars.py
 echo "successfully authentication"
 #echo $VAULT_TOKEN
-cd git-resource/tasks/aws_deploy
+cd git-resource/Section05_Building_the_Pipeline/input
 #python3 vault_prep.py
 
 

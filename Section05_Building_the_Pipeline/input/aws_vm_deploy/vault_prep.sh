@@ -7,7 +7,7 @@ export VAULT_TOKEN=$SSH_TOKEN
 vault login --no-print $VAULT_TOKEN
 #Writing the AZ and Region to the vault
 #This script imports the lab_vars.py file and writes the vars to the vault under the az name mount
-cd git-resource/tasks/aws_deploy
+cd git-resource/Section05_Building_the_Pipeline/input/aws_vm_deploy
 python3 vault_prep.py
 
 

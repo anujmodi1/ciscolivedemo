@@ -8,17 +8,27 @@ jobs:
       - task: lab_prep
         file: git-resource/Section05_Building_the_Pipeline/input/vault_prep.yml
 
-  - name: california
+  - name: aws_vm_deploy
     public: true
     plan:
       - get: git-resource
         passed: [lab-prep]
       - task: aws_deploy_key
-        file: git-resource/Section05_Building_the_Pipeline/input/california/aws_key_deploy.yml
+        file: git-resource/Section05_Building_the_Pipeline/input/aws_vm_deploy/aws_key_deploy.yml
       - task: aws_deploy_vpc
-        file: git-resource/Section05_Building_the_Pipeline/input/california/aws_env_deploy.yml
+        file: git-resource/Section05_Building_the_Pipeline/input/aws_vm_deploy/aws_env_deploy.yml
       - task: aws_deploy_ubuntu_california
-        file: git-resource/Section05_Building_the_Pipeline/input/california/aws_deploy_ubuntu.yml
+        file: git-resource/Section05_Building_the_Pipeline/input/aws_vm_deploy/aws_deploy_ubuntu.yml
+
+  - name: aws_vm_delete
+    public: true
+    plan:
+      - get: git-resource
+        passed: [aws_vm_deploy]
+      - task: delete-aws-vpc
+        file: git-resource/tasks/aws_delete/aws_vpc_delete.yml
+      - task: delete-aws-ubuntu
+        file: git-resource/tasks/aws_delete/aws_ubuntu_delete.yml
 
   - name: super-car-trader
     public: true
