@@ -15,7 +15,8 @@ params:
   VAULT_ADDR: http://dev-vault.ciscolivedemo2022.com:8200
   SSH_TOKEN: ((ssh-token.token))
   NAME: us-west-1a
-  REGION: us-west-1a
+  AZ: us-west-1a
+  REGION: us-west-1
 
 run:
   path: /bin/sh
@@ -28,6 +29,10 @@ run:
       export VAULT_ADDR=$VAULT_ADDR
       export VAULT_TOKEN=$SSH_TOKEN
       vault login --no-print $VAULT_TOKEN
+      export REGION=$REGION
+      export AZ=$AZ
+      echo $REGION
+      echo $AZ
       aws configure set aws_access_key_id $AWS_KEY_ID
       aws configure set aws_secret_access_key $AWS_KEY
       aws configure set default.region $REGION 
