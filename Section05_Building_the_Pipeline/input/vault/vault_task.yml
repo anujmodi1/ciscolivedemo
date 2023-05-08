@@ -1,0 +1,31 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: sconrod/python-aws-image
+    tag: 2.0
+
+inputs:
+  - name: vault
+
+params:
+  UNPACK_ROOTFS: true
+  VAULT_ADDR: http://dev-vault.ciscolivedemo2022.com:8200
+  SSH_TOKEN: ((ssh-token.token))
+
+run:
+  path: /bin/sh
+  args:
+    - -ce
+    - |
+      chmod a+x vault/vault_agent.sh
+      ./vault/vault_agent.sh
+
+
+
+
+
+
+

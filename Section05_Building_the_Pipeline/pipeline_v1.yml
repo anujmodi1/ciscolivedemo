@@ -30,6 +30,30 @@ jobs:
       - task: delete-aws-vpc
         file: git-resource/Section05_Building_the_Pipeline/input/aws_vm_delete/aws_vpc_delete.yml
 
+  - name: deploy-te-agent-vault
+    public: true
+    plan:
+      - get: git-resource
+        passed: [aws_vm_deploy]
+      - task: deploy-te-agent
+        file: git-resource/Section05_Building_the_Pipeline/input/te_install_vault/te_agents_install.yml
+
+  - name: deploy-te-agent
+    public: true
+    plan:
+      - get: git-resource
+        passed: [aws_vm_deploy]
+      - task: deploy-te-agent
+        file: git-resource/Section05_Building_the_Pipeline/input/te_agent/configure_te_agent_task.yml
+
+  - name: deploy-te-agents
+    public: true
+    plan:
+      - get: git-resource
+        passed: [ aws_vm_deploy ]
+      - task: deploy-te-agents
+        file: git-resource/Section05_Building_the_Pipeline/input/te_agent/configure_te_agents_task.yml
+
   - name: super-car-trader
     public: true
     plan:

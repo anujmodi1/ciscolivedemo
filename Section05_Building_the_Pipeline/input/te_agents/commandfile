@@ -1,0 +1,11 @@
+export TERMINFO=/usr/lib/terminfo
+TERM=xterm
+echo "Working Directory is........"
+pwd
+sudo curl -Os https://downloads.thousandeyes.com/agent/install_thousandeyes.sh
+sudo chmod a+x install_thousandeyes.sh
+sudo ./install_thousandeyes.sh -f -b hxfvt65vo9a89sm34ibsdp1cgb44zfdk
+sudo apt-add-repository https://apt.thousandeyes.com
+
+
+
