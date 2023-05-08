@@ -23,8 +23,8 @@ run:
       NAME='us-west-1a'
       export NAME
       echo $NAME
-      chmod a+x git-resource/Section05_Building_the_Pipeline/input/te_install_vault/te_agents_install.sh
-      ./git-resource/Section05_Building_the_Pipeline/input/te_install_vault/te_agents_install.sh
+      chmod a+x git-resource/Section05_Building_the_Pipeline/input/te_agents/configure_te_agents_task.sh
+      ./git-resource/Section05_Building_the_Pipeline/input/te_agents/configure_te_agents_task.sh
 
 
       
