@@ -1,5 +1,4 @@
 #!/bin/sh
-#cd Section05_Building_the_Pipeline/input/te_install_vault
 export AWS_PAGER=""
 export NAME=us-west-1a
 #apt -y update && apt -y upgrade
@@ -21,6 +20,8 @@ echo "The external ip for the ubuntu instance on the router subnet is....."
 echo $server
 ssh-keyscan -H "$server" >> ~/.ssh/known_hosts
 scp -i sshkey.pem install_te.sh ubuntu@"$server":~/
+#ssh -i sshkey.pem ubuntu@"$server"
 echo "Calling the python script"
-python3 git-resource/Section05_Building_the_Pipeline/input/te_install_vault/te_agents_install.py
+cd git-resource/Section05_Building_the_Pipeline/input/te_install_vault
+python3 te_agents_install.bak.py
 
