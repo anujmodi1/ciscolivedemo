@@ -23,5 +23,5 @@ scp -i sshkey.pem install_te.sh ubuntu@"$server":~/
 #ssh -i sshkey.pem ubuntu@"$server"
 echo "Calling the python script"
 cd git-resource/Section05_Building_the_Pipeline/input/te_install_vault
-python3 te_agents_install.bak.py
+python3 te_agents_install.py
 
