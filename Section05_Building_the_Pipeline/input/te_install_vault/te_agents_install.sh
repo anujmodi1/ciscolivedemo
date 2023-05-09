@@ -1,5 +1,5 @@
 #!/bin/sh
-cd vault
+cd Section05_Building_the_Pipeline/input/te_install_vault
 export AWS_PAGER=""
 export NAME=us-west-1a
 #apt -y update && apt -y upgrade
