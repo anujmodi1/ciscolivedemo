@@ -1,4 +1,5 @@
 #!/bin/sh
+cd git-resource/Section05_Building_the_Pipeline/input/te_install_vault
 export AWS_PAGER=""
 pip3 install paramiko
 #apt -y install ncurses-term
