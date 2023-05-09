@@ -27,6 +27,16 @@ commands = [
     "echo $TE_GROUP",
     "sudo curl -Os https://downloads.thousandeyes.com/agent/install_thousandeyes.sh",
     "sudo chmod a+x install_thousandeyes.sh",
-    "sudo ./install_thousandeyes.sh -f $TE_GROUP"
+    "sudo ./install_thousandeyes.sh -f hxfvt65vo9a89sm34ibsdp1cgb44zfdk"
 ]
 
+# execute the commands
+for command in commands:
+    print("="*50, command, "="*50)
+    stdin, stdout, stderr = con.exec_command(command, get_pty=True)
+    print(stdout.read().decode())
+    err = stderr.read().decode()
+    time.sleep(3)
+    if err:
+        print(err)
+con.close()
