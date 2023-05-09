@@ -33,25 +33,15 @@ jobs:
     public: true
     plan:
       - get: git-resource
-        passed: [aws_vm_deploy]
       - task: deploy-te-agent
         file: git-resource/Section05_Building_the_Pipeline/input/te_install_vault/te_agents_install.yml
 
-  - name: deploy-te-agent
+  - name: delete-te-agent
     public: true
     plan:
       - get: git-resource
-        passed: [aws_vm_deploy]
-      - task: deploy-te-agent
-        file: git-resource/Section05_Building_the_Pipeline/input/te_agent/configure_te_agent_task.yml
-
-  - name: deploy-te-agents
-    public: true
-    plan:
-      - get: git-resource
-        passed: [ aws_vm_deploy ]
-      - task: deploy-te-agents
-        file: git-resource/Section05_Building_the_Pipeline/input/te_agent/configure_te_agents_task.yml
+      - task: delete-te-agent
+        file: git-resource/Section05_Building_the_Pipeline/input/te_install_vault/delete_te_agents.yml
 
   - name: super-car-trader
     public: true
