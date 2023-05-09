@@ -8,28 +8,23 @@ image_resource:
     tag: 2.0
 
 inputs:
-  - name: te_agent
+  - name: vault
 
 params:
   VAULT_ADDR: http://dev-vault.ciscolivedemo2022.com:8200
   SSH_TOKEN: ((ssh-token.token))
-  NAME: us-west-1a
 
 run:
   path: /bin/sh
   args:
-    - -ce
+    - -cex
     - |
-      cd te_agent
-      python3 -m pip install --upgrade pip
-      pip3 install netmiko
-      apt -y install ncurses-term
-      chmod a+x configure_te_agent.sh
-      ./configure_te_agent.sh
+      export AWS_PAGER=""
+      NAME='us-west-1a'
+      export NAME
+      echo $NAME
+      chmod a+x vault/te_agents_install.sh
+      ./vault/te_agents_install.sh
 
 
-
-
-
-
-
+      

@@ -1,22 +1,27 @@
 #!/usr/bin/env python
 import json, re, sys, os, json, subprocess, time, logging, requests, paramiko
 from subprocess import call, check_output
-from paramiko import RSAKey
-from paramiko.py3compat import decodebytes
 
 #Install the Agent
-sshkey='sshkey.pem'
-#os.chmod("sshkey.pem", 400)
+#See if  you can pull the pem from vault
+
+#from os import environ
+os.environ.get('SSHKEY')
+os.environ.get('TE_GROUP')
+
+#sshkey = environ.get('SSHKEY')
+#print(sshkey)
+
+#with open('sshkey.pem', 'r+') as my_file:
+#    my_file.write(sshkey)
+
+os.chmod("sshkey.pem", 400)
 
 private_key = 'sshkey.pem'
-know_host_key = "sshkey.pem"
 key = paramiko.RSAKey.from_private_key_file(private_key)
-
-
-
 username='ubuntu'
 hostfile='hostfile'
-commandfile='commandfile'
+commandfile='delete_appd_agents_commandfile'
 
 # Opens files in read mode
 f1 = open(hostfile,"r")
@@ -30,9 +35,8 @@ for device in devices:
     device = device.rstrip()
     for command in commands:
         con = paramiko.SSHClient()
-        con.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         con.load_system_host_keys()
-        con.connect(device, username=username, allow_agent=False, key=key)
+        con.connect(device, username=username, allow_agent=False, pkey=key)
         print("="*50, command, "="*50)
         stdin, stdout, stderr = con.exec_command(command, get_pty=True)
         print(stdout.read().decode())

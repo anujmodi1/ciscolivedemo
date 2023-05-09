@@ -24,7 +24,6 @@ jobs:
     public: true
     plan:
       - get: git-resource
-        trigger: true
       - task: delete-aws-ubuntu
         file: git-resource/Section05_Building_the_Pipeline/input/aws_vm_delete/aws_ubuntu_delete.yml
       - task: delete-aws-vpc

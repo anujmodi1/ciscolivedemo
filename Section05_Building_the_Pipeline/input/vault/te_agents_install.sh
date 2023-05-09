@@ -24,3 +24,5 @@ scp -i sshkey.pem install_te.sh ubuntu@"$server":~/
 echo "Calling the python script"
 python3 te_agents_install.py
 
+
+
