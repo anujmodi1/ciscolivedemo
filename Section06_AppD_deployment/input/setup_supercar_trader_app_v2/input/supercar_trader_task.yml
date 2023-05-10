@@ -8,7 +8,7 @@ image_resource:
     tag: '1.22'
 
 inputs:
-  - name: input
+  - name: git-resource
 run:
   path: /bin/sh
   args:
@@ -23,8 +23,8 @@ run:
       aws configure set default.region $REGION
       aws sts get-caller-identity --query Account --output text
       export AWS_PAGER=""
-      chmod a+x supercar_trader.sh
-      ./supercar_trader.sh
+      chmod a+x git-resource/Section06_AppD_deployment/input/setup_supercar_trader_app_v2/input/supercar_trader.sh
+      ./git-resource/Section06_AppD_deployment/input/setup_supercar_trader_app_v2/input/supercar_trader.sh
 
 params:
   AWS_KEY_ID: ((Access_key_ID.Access_key))
