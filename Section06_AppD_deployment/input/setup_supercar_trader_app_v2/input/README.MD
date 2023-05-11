@@ -1,3 +1,14 @@
+# Adding the kube config file in the vault
+export VAULT_ADDR=http://dev-vault.ciscolivedemo2022.com:8200
+export VAULT_TOKEN="hvs.v7nPiQImqofr8EfKsovQ9FDP"
+vault login
+#enter root token
+#cp ~/.kube/config .
+#vault kv put concourse/main/lab-kube-config kubeconfig=@config
+
+#add the vaules.yaml file in the vault.
+vault kv put concourse/main/supercar-vaules data=@values.yaml
+
 
 
 Make sure to authenticate to the team main to run task...due to vault..

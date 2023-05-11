@@ -3,14 +3,16 @@ export AWS_PAGER=""
 cp config ~/.aws
 export VAULT_ADDR=$VAULT_ADDR
 export VAULT_TOKEN=$SSH_TOKEN
-curl -Lo kops https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
-chmod +x ./kops
-mv ./kops /usr/local/bin/
+#curl -Lo kops https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
+#chmod +x ./kops
+#mv ./kops /usr/local/bin/
+export NAME=k8s.ciscolivedemo2022.com
 export KOPS_STATE_STORE=s3://ciscolivedemo2022-kops-state
-kops export kubecfg --admin
+kops export config $NAME --admin
 vault login --no-print $SSH_TOKEN
 mkdir ~/.kube
 vault kv get -field kubeconfig concourse/main/lab-kube-config > ~/.kube/config
+kubectl get nodes
 kubectl create ns supercar
 #vault kv get -field data concourse/main/supercar-values | base64 -d > values.yaml
 kubectl -n supercar delete deploy --all
