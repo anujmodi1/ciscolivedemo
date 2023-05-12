@@ -10,8 +10,10 @@ export NAME=k8s.ciscolivedemo2022.com
 export KOPS_STATE_STORE=s3://ciscolivedemo2022-kops-state
 kops export config $NAME --admin
 vault login --no-print $SSH_TOKEN
+vault --version
+vault status
 mkdir ~/.kube
-vault kv get -field kubeconfig concourse/main/lab-kube-config > ~/.kube/config
+vault kv get -field econfig concourse/main/lab-kube-config > ~/.kube/config
 vault kv get -field data concourse/main/appd-controller-info | base64 -d > controller-info.xml
 kubectl get nodes
 kubectl create ns supercar

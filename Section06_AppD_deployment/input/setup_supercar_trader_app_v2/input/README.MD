@@ -4,7 +4,8 @@ export VAULT_TOKEN="hvs.v7nPiQImqofr8EfKsovQ9FDP"
 vault login
 #enter root token
 #cp ~/.kube/config .
-#vault kv put concourse/main/lab-kube-config kubeconfig=@config
+#vault kv put concourse/main/lab-kube-config config=@config
+vault kv put concourse/main/lab-kube-config data=$(base64 < controller-info.xml)
 
 #add the vaules.yaml file in the vault.
 vault kv put concourse/main/supercar-vaules data=@values.yaml
