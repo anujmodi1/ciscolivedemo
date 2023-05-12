@@ -6,7 +6,7 @@ kops export kubeconfig $NAME --admin
 Kubectl get cluster
 
 Login
-fly --target=target login --concourse-url=http://dev-ci.ciscolivedemo2022.com:8080 -n main --username=ci --password=cisco@2022yml
+fly --target=target login --concourse-url=http://dev-ci.ciscolivedemo2022.com:8080 -n main --username=ci --password=cisco@2022
 fly -t target e -c te_agents_install.yml
 Pipeline
 fly -t target set-pipeline -p pipeline1 -c /Users/anmodi/dev/ciscolivedemo/Section05_Building_the_Pipeline/pipeline_v1.yml -l /Users/anmodi/dev/notes/params.yml -v aws.region=us-east-1 -v az.name=us-east-1a -v vault.addr=http://dev-vault.ciscolivedemo2022.com:8200

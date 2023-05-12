@@ -46,6 +46,23 @@ https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-
 Sample Java App:
 https://github.com/sherifadel90/AppDynamics-SupercarsJavaApp/blob/master/README.md
 
+
+Execute the following to get the administrator credentials:
+
+echo Username: root
+MYSQL_ROOT_PASSWORD=$(kubectl get secret --namespace supercar mysql -o jsonpath="{.data.mysql-root-password}" | base64 -d)
+
+To connect to your database:
+
+1. Run a pod that you can use as a client:
+
+   kubectl run mysql-client --rm --tty -i --restart='Never' --image  docker.io/bitnami/mysql:8.0.29-debian-11-r3 --namespace supercar --env MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD --command -- bash
+
+2. To connect to primary service (read/write):
+
+   mysql -h mysql.supercar.svc.cluster.local -uroot -p"$MYSQL_ROOT_PASSWORD"
+
+
 After successful deployment - Tomcat will be available via the lb URL
 
 The Supercar-Trader java app will be available at:
