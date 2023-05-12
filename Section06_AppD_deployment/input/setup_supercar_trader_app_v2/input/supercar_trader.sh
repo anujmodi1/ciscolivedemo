@@ -1,6 +1,7 @@
 #!/bin/sh
 export AWS_PAGER=""
 cp config ~/.aws
+cd git-resource/Section06_AppD_deployment/input/setup_supercar_trader_app_v2/input
 export VAULT_ADDR=$VAULT_ADDR
 export VAULT_TOKEN=$SSH_TOKEN
 #curl -Lo kops https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
@@ -27,7 +28,6 @@ kubectl -n supercar apply -f supercar-trader.yml
 kubectl -n supercar apply -f tomcat_lb.yml
 kubectl -n supercar get svc
 helm repo add bitnami https://charts.bitnami.com/bitnami
-cd Section06_AppD_deployment/input/setup_supercar_trader_app_v2/input
 helm install -n supercar mysql bitnami/mysql -f mysql-values.yaml
 kubectl get nodes
 #kubectl get pods -w --namespace supercar
