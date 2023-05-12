@@ -31,14 +31,13 @@ echo $MYSQL_ROOT_PASSWORD
 apt -y update
 apt -y install mysql-client
 git clone https://github.com/sherifadel90/AppDynamics-SupercarsJavaApp.git
-cd AppDynamics-SupercarsJavaApp/supercar/src/main/resources/db
 pwd
 ls
+cd AppDynamics-SupercarsJavaApp/Supercar-Trader/src/main/resources/db
 echo "waiting for mysql loadBalancer to be provisioned in AWS....."
 sleep 3m
 MYSQL_LB=$(kubectl get svc --namespace supercar mysql -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
 mysql -h $MYSQL_LB -uroot -p"$MYSQL_ROOT_PASSWORD" < mysql-01.sql --force
-
 
 
 
