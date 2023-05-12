@@ -1,6 +1,6 @@
 #!/bin/sh
 export AWS_PAGER=""
-cp config ~/.aws
+#cp config ~/.aws
 cd git-resource/Section06_AppD_deployment/input/setup_supercar_trader_app_v2/input
 export VAULT_ADDR=$VAULT_ADDR
 export VAULT_TOKEN=$SSH_TOKEN
@@ -9,7 +9,7 @@ export VAULT_TOKEN=$SSH_TOKEN
 #mv ./kops /usr/local/bin/
 export NAME=k8s.ciscolivedemo2022.com
 export KOPS_STATE_STORE=s3://ciscolivedemo2022-kops-state
-kops export config $NAME --admin
+#kops export config $NAME --admin
 vault login --no-print $SSH_TOKEN
 vault --version
 vault status
@@ -38,8 +38,7 @@ apt -y install mysql-client
 git clone https://github.com/sherifadel90/AppDynamics-SupercarsJavaApp.git
 pwd
 ls
-cd ~
-cd AppDynamics-SupercarsJavaApp/Supercar-Trader/src/main/resources/db
+cd ~/AppDynamics-SupercarsJavaApp/Supercar-Trader/src/main/resources/db
 ls
 pwd
 echo $MYSQL_ROOT_PASSWORD
