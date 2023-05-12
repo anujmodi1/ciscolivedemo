@@ -9,8 +9,8 @@
       2. System properties passed on the command line.
       3. Versioned agent properties.    /$(Agent-Base-Install-Dir)/ver$(agent-version-no)/conf/agent.properties
       4. Global agent properties.       /$(Agent-Base-Install-Dir)/conf/agent.properties
-      5. Versioned configuration file.  /$(Agent-Base-Install-Dir)/ver$(agent-version-no)/conf/controller-info.xml.bak
-      6. Global configuration file.     /$(Agent-Base-Install-Dir)/conf/controller-info.xml.bak -->
+      5. Versioned configuration file.  /$(Agent-Base-Install-Dir)/ver$(agent-version-no)/conf/controller-info.xml
+      6. Global configuration file.     /$(Agent-Base-Install-Dir)/conf/controller-info.xml -->
 
     <!-- The host name or the IP address of the AppDynamics Controller.
     For example, 192.168.1.22 or myhost or myhost.abc.com

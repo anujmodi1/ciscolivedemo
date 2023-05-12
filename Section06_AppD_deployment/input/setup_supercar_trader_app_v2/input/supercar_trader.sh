@@ -12,6 +12,7 @@ kops export config $NAME --admin
 vault login --no-print $SSH_TOKEN
 mkdir ~/.kube
 vault kv get -field kubeconfig concourse/main/lab-kube-config > ~/.kube/config
+vault kv get -field data concourse/main/appd-controller-info | base64 -d > controller-info.xml
 kubectl get nodes
 kubectl create ns supercar
 #vault kv get -field data concourse/main/supercar-values | base64 -d > values.yaml
@@ -34,13 +35,15 @@ git clone https://github.com/sherifadel90/AppDynamics-SupercarsJavaApp.git
 pwd
 ls
 cd AppDynamics-SupercarsJavaApp/Supercar-Trader/src/main/resources/db
+ls
+pwd
+echo $MYSQL_ROOT_PASSWORD
 echo "waiting for mysql loadBalancer to be provisioned in AWS....."
 sleep 3m
 MYSQL_LB=$(kubectl get svc --namespace supercar mysql -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
 mysql -h $MYSQL_LB -uroot -p"$MYSQL_ROOT_PASSWORD" < mysql-01.sql --force
-
-
-
+mysql -h $MYSQL_LB -uroot -p"$MYSQL_ROOT_PASSWORD" < mysql-02.sql --force
+mysql -h $MYSQL_LB -uroot -p"$MYSQL_ROOT_PASSWORD" < mysql-03.sql --force
 
 
 

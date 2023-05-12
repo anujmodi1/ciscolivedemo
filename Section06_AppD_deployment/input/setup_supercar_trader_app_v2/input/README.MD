@@ -9,6 +9,11 @@ vault login
 #add the vaules.yaml file in the vault.
 vault kv put concourse/main/supercar-vaules data=@values.yaml
 
+Get the controller-info.xml file into the vault
+vault kv put concourse/main/appd-controller-info data=$(base64 < controller-info.xml)
+Get the controller-info.xml file out of the vault
+vault kv get -field data concourse/main/appd-controller-info | base64 -d > controller-info.xml
+
 
 Make sure to authenticate to the team main to run task...due to vault..
 

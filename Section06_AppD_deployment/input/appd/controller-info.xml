@@ -5,7 +5,7 @@
     order of precedence of how the agent will read and respect specific configurations.
       1. Environment Variables
       2. System Properties
-      3. Default/Root controller-info.xml. See .../$(Agent-Base-Install-Dir)/conf/controller-info.xml -->
+      3. Default/Root controller-info.xml.bak. See .../$(Agent-Base-Install-Dir)/conf/controller-info.xml.bak -->
 
     <!-- This is the host name or the IP address of the AppDynamics Controller (e.g., 192.168.1.22 or myhost or
     myhost.abc.com). This is the same host that you use to access the AppDynamics browser-based User interface. This can
