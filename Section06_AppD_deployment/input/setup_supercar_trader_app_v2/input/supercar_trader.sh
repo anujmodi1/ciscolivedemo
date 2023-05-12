@@ -27,9 +27,10 @@ kubectl -n supercar apply -f supercar-trader.yml
 kubectl -n supercar apply -f tomcat_lb.yml
 kubectl -n supercar get svc
 helm repo add bitnami https://charts.bitnami.com/bitnami
+cd Section06_AppD_deployment/input/setup_supercar_trader_app_v2/input
 helm install -n supercar mysql bitnami/mysql -f mysql-values.yaml
 kubectl get nodes
-kubectl get pods -w --namespace supercar
+#kubectl get pods -w --namespace supercar
 MYSQL_ROOT_PASSWORD=$(kubectl get secret --namespace supercar mysql -o jsonpath="{.data.mysql-root-password}" | base64 -d)
 echo $MYSQL_ROOT_PASSWORD
 apt -y update
@@ -37,6 +38,7 @@ apt -y install mysql-client
 git clone https://github.com/sherifadel90/AppDynamics-SupercarsJavaApp.git
 pwd
 ls
+cd ~
 cd AppDynamics-SupercarsJavaApp/Supercar-Trader/src/main/resources/db
 ls
 pwd
