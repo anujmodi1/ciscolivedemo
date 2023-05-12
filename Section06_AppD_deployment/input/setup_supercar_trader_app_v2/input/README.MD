@@ -10,7 +10,6 @@ vault login
 vault kv put concourse/main/supercar-vaules data=@values.yaml
 
 
-
 Make sure to authenticate to the team main to run task...due to vault..
 
 After deployment - the app will show up at the load balancer URL with:
