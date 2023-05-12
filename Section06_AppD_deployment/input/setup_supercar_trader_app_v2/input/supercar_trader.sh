@@ -13,7 +13,7 @@ vault login --no-print $SSH_TOKEN
 vault --version
 vault status
 mkdir ~/.kube
-vault kv get -field econfig concourse/main/lab-kube-config > ~/.kube/config
+vault kv get -field config concourse/main/lab-kube-config > ~/.kube/config
 vault kv get -field data concourse/main/appd-controller-info | base64 -d > controller-info.xml
 kubectl get nodes
 kubectl create ns supercar
