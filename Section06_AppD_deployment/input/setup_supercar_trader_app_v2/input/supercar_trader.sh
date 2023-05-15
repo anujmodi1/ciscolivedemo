@@ -14,6 +14,7 @@ vault login --no-print $SSH_TOKEN
 vault --version
 vault status
 mkdir ~/.kube
+#config file require update everyday as this will fetch new config file with kops cluster command
 vault kv get -field config concourse/main/lab-kube-config > ~/.kube/config
 vault kv get -field data concourse/main/appd-controller-info | base64 -d > controller-info.xml
 kubectl get nodes
