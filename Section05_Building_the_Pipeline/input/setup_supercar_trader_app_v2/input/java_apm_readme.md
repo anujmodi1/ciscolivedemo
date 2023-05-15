@@ -40,7 +40,7 @@ sudo mkdir appdynamics
 sudo chown -R centos:centos /opt/appdynamics
 cd /opt/appdynamics
 mkdir javaagent
-cd cd /opt/appdynamics/javaagent
+cd /opt/appdynamics/javaagent
 unzip *.zip
 
 Prepare the controller-info.xml file in advance and save to the vault.....
