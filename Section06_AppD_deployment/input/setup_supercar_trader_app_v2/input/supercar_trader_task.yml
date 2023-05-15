@@ -4,8 +4,8 @@ platform: linux
 image_resource:
   type: docker-image
   source:
-    repository: sconrod/ubuntu-kops
-    tag: '1.22'
+    repository: sconrod/centos7-tomcat
+    tag: '2
 
 inputs:
   - name: git-resource
