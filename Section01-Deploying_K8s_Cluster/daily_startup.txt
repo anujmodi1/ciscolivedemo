@@ -5,6 +5,10 @@ export KOPS_STATE_STORE=s3://ciscolivedemo2022-kops-state
 kops export kubeconfig $NAME --admin
 Kubectl get cluster
 
+export VAULT_ADDR=http://dev-vault.ciscolivedemo2022.com:8200
+export VAULT_TOKEN="hvs.v7nPiQImqofr8EfKsovQ9FDP"
+vault login $VAULT_TOKEN
+
 Login
 fly --target=target login --concourse-url=http://dev-ci.ciscolivedemo2022.com:8080 -n main --username=ci --password=cisco@2022
 fly -t target e -c te_agents_install.yml
