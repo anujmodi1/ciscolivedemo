@@ -139,7 +139,7 @@
     the system property '-Dappdynamics.agent.accountAccessKey'
     if 'use-encrypted-credentials' is set to true, use the encrypted the account access key.  -->
 
-    <account-access-key>1sbzknemvzco</account-access-key>
+    <account-access-key>55efe7cf-ef31-4f6b-95d2-dff3c73c2c70</account-access-key>
 
     <!--  Change to 'true' only under special circumstances when you want to override this node's application name
     or tier name after this agent has been moved to a new application and/or tier in the Controller UI. When true,

@@ -10,7 +10,7 @@ The configured file resides in the vault
 If Manual Steps Preferred by Student...
 Downloading Agent....
 example...for sun rockit
-curl -L -O -H "Authorization: Bearer eyJraWQiOiJLRUpyaXk5V21PRVROVzlONF9mQnE2bE5WQ3A0UVBfNHdWS0V2RlR4dUJ3IiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULkVxWDdlZ3JEZFdoTmh3TWowOV9BaDRmcUw0Y0QyWFVmc3diemRyaGJzaGcub2FyMWR0ejcxbWRGdEFiVVgycDciLCJpc3MiOiJodHRwczovL2FwcGQtaWRlbnRpdHkub2t0YS5jb20vb2F1dGgyL2F1c3B2bnAzdmtrclNIMk9RMnA2IiwiYXVkIjoibWljb3JzZXJ2aWNlcyIsImlhdCI6MTY1MTI2MTQ4OSwiZXhwIjoxNjUxMzQ3ODg5LCJjaWQiOiIwb2ExanMxMHQ3ekJjTENnRzJwNyIsInVpZCI6IjAwdWVleDBpZ3VORkppcjYwMnA3Iiwic2NwIjpbIm9wZW5pZCIsIm9mZmxpbmVfYWNjZXNzIiwiZG93bmxvYWQiXSwiYXV0aF90aW1lIjoxNjUxMjYxNDM0LCJzdWIiOiJzY29ucm9kQGNpc2NvLmNvbSJ9.R4LW6XO_NdijEIXbdOmxjPpqTb6heG-Ir5VsVb-H7LehDKlhl_aK-lO3plaR1jSFVsZSWPvY_NV10s-VTAnZeKgOZ79_2dd5G1Op1V9dzeFuA0Dv7Vt59h_OCZpPYc1kRQtDkVZRLl63Gu8hfBbx8FZWT7TPPeQZpfFpdSSTKuB5PCYEwYMufs89PfjV5K1qArgqsTo8HXGcv60m-ONzo0Qn6kI_45pOi3VIh4CMAicSjqUAYnkDWmyGTBjgcrzAOMbSSmvJSVvReZSjD23wcsccM4DkTfdcURKOeXRaXJkij-_ELYnur9mwAWF-SIt2dJwtYsYr-OkMWAKHYZZ8Wg;" "https://download.appdynamics.com/download/prox/download-file/sun-jvm/22.4.0.33722/AppServerAgent-22.4.0.33722.zip"
+curl -L -O -H "Authorization: Bearer x.x.x-x-x-x-x-x-_x-x-x;" "https://download.appdynamics.com/download/prox/download-file/sun-jvm/22.4.0.33722/AppServerAgent-22.4.0.33722.zip"
 
 cd /opt
 sudo mkdir appdynamics
@@ -32,9 +32,9 @@ vault kv put concourse/main/appd-controller-info data=$(base64 < /Users/sconrod/
 Manual Steps if you like....
 
 curl down the apm agent installer.......remember to get and use token python module
-curl -L -O -H "Authorization: Bearer eyJraWQiOiJLRUpyaXk5V21PRVROVzlONF9mQnE2bE5WQ3A0UVBfNHdWS0V2RlR4dUJ3IiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULkVxWDdlZ3JEZFdoTmh3TWowOV9BaDRmcUw0Y0QyWFVmc3diemRyaGJzaGcub2FyMWR0ejcxbWRGdEFiVVgycDciLCJpc3MiOiJodHRwczovL2FwcGQtaWRlbnRpdHkub2t0YS5jb20vb2F1dGgyL2F1c3B2bnAzdmtrclNIMk9RMnA2IiwiYXVkIjoibWljb3JzZXJ2aWNlcyIsImlhdCI6MTY1MTI2MTQ4OSwiZXhwIjoxNjUxMzQ3ODg5LCJjaWQiOiIwb2ExanMxMHQ3ekJjTENnRzJwNyIsInVpZCI6IjAwdWVleDBpZ3VORkppcjYwMnA3Iiwic2NwIjpbIm9wZW5pZCIsIm9mZmxpbmVfYWNjZXNzIiwiZG93bmxvYWQiXSwiYXV0aF90aW1lIjoxNjUxMjYxNDM0LCJzdWIiOiJzY29ucm9kQGNpc2NvLmNvbSJ9.R4LW6XO_NdijEIXbdOmxjPpqTb6heG-Ir5VsVb-H7LehDKlhl_aK-lO3plaR1jSFVsZSWPvY_NV10s-VTAnZeKgOZ79_2dd5G1Op1V9dzeFuA0Dv7Vt59h_OCZpPYc1kRQtDkVZRLl63Gu8hfBbx8FZWT7TPPeQZpfFpdSSTKuB5PCYEwYMufs89PfjV5K1qArgqsTo8HXGcv60m-ONzo0Qn6kI_45pOi3VIh4CMAicSjqUAYnkDWmyGTBjgcrzAOMbSSmvJSVvReZSjD23wcsccM4DkTfdcURKOeXRaXJkij-_ELYnur9mwAWF-SIt2dJwtYsYr-OkMWAKHYZZ8Wg;" "https://download.appdynamics.com/download/prox/download-file/sun-jvm/22.4.0.33722/AppServerAgent-22.4.0.33722.zip"
+curl -L -O -H "Authorization: Bearer x.x.x-Ir5VsVb-H7LehDKlhl_aK-lO3plaR1jSFVsZSWPvY_NV10s-VTAnZeKgOZ79_2dd5G1Op1V9dzeFuA0Dv7Vt59h_OCZpPYc1kRQtDkVZRLl63Gu8hfBbx8FZWT7TPPeQZpfFpdSSTKuB5PCYEwYMufs89PfjV5K1qArgqsTo8HXGcv60m-ONzo0Qn6kI_45pOi3VIh4CMAicSjqUAYnkDWmyGTBjgcrzAOMbSSmvJSVvReZSjD23wcsccM4DkTfdcURKOeXRaXJkij-_ELYnur9mwAWF-SIt2dJwtYsYr-OkMWAKHYZZ8Wg;" "https://download.appdynamics.com/download/prox/download-file/sun-jvm/22.4.0.33722/AppServerAgent-22.4.0.33722.zip"
 
-curl -L -O -H "Authorization: Bearer eyJraWQiOiJLRUpyaXk5V21PRVROVzlONF9mQnE2bE5WQ3A0UVBfNHdWS0V2RlR4dUJ3IiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULkVxWDdlZ3JEZFdoTmh3TWowOV9BaDRmcUw0Y0QyWFVmc3diemRyaGJzaGcub2FyMWR0ejcxbWRGdEFiVVgycDciLCJpc3MiOiJodHRwczovL2FwcGQtaWRlbnRpdHkub2t0YS5jb20vb2F1dGgyL2F1c3B2bnAzdmtrclNIMk9RMnA2IiwiYXVkIjoibWljb3JzZXJ2aWNlcyIsImlhdCI6MTY1MTI2MTQ4OSwiZXhwIjoxNjUxMzQ3ODg5LCJjaWQiOiIwb2ExanMxMHQ3ekJjTENnRzJwNyIsInVpZCI6IjAwdWVleDBpZ3VORkppcjYwMnA3Iiwic2NwIjpbIm9wZW5pZCIsIm9mZmxpbmVfYWNjZXNzIiwiZG93bmxvYWQiXSwiYXV0aF90aW1lIjoxNjUxMjYxNDM0LCJzdWIiOiJzY29ucm9kQGNpc2NvLmNvbSJ9.R4LW6XO_NdijEIXbdOmxjPpqTb6heG-Ir5VsVb-H7LehDKlhl_aK-lO3plaR1jSFVsZSWPvY_NV10s-VTAnZeKgOZ79_2dd5G1Op1V9dzeFuA0Dv7Vt59h_OCZpPYc1kRQtDkVZRLl63Gu8hfBbx8FZWT7TPPeQZpfFpdSSTKuB5PCYEwYMufs89PfjV5K1qArgqsTo8HXGcv60m-ONzo0Qn6kI_45pOi3VIh4CMAicSjqUAYnkDWmyGTBjgcrzAOMbSSmvJSVvReZSjD23wcsccM4DkTfdcURKOeXRaXJkij-_ELYnur9mwAWF-SIt2dJwtYsYr-OkMWAKHYZZ8Wg;" "https://download.appdynamics.com/download/prox/download-file/sun-jvm/22.4.0.33722/AppServerAgent-22.4.0.33722.zip"
+curl -L -O -H "Authorization: Bearer x.x.x-Ir5VsVb-H7LehDKlhl_aK-lO3plaR1jSFVsZSWPvY_NV10s-VTAnZeKgOZ79_2dd5G1Op1V9dzeFuA0Dv7Vt59h_OCZpPYc1kRQtDkVZRLl63Gu8hfBbx8FZWT7TPPeQZpfFpdSSTKuB5PCYEwYMufs89PfjV5K1qArgqsTo8HXGcv60m-ONzo0Qn6kI_45pOi3VIh4CMAicSjqUAYnkDWmyGTBjgcrzAOMbSSmvJSVvReZSjD23wcsccM4DkTfdcURKOeXRaXJkij-_ELYnur9mwAWF-SIt2dJwtYsYr-OkMWAKHYZZ8Wg;" "https://download.appdynamics.com/download/prox/download-file/sun-jvm/22.4.0.33722/AppServerAgent-22.4.0.33722.zip"
 
 https://download.appdynamics.com/download/prox/download-file/sun-jvm/22.4.0.33722/AppServerAgent-22.4.0.33722.zip
 
@@ -46,6 +46,11 @@ sudo chown -R centos:centos /opt/appdynamics
 cd /opt/appdynamics
 mkdir javaagent
 cd cd /opt/appdynamics/javaagent
+cd /tmp
+git clone https://github.com/anujmodi1/ciscolivedemo.git
+cp AppServerAgent-22.4.0.33722.zip /opt/appdynamics/javaagent/
+cd /opt/appdynamics/javaagent/
+yum install unzip
 unzip *.zip
 
 Prepare the controller-info.xml file in advance and save to the vault.....

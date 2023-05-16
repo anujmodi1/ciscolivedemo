@@ -1,6 +1,6 @@
 # Adding the kube config file in the vault
 export VAULT_ADDR=http://dev-vault.ciscolivedemo2022.com:8200
-export VAULT_TOKEN="hvs.v7nPiQImqofr8EfKsovQ9FDP"
+export VAULT_TOKEN="x"
 vault login
 #enter root token
 #cp ~/.kube/config .
@@ -15,6 +15,8 @@ vault kv put concourse/main/appd-controller-info data=$(base64 < controller-info
 Get the controller-info.xml file out of the vault
 vault kv get -field data concourse/main/appd-controller-info | base64 -d > controller-info.xml
 
+
+A temporary password is generated for root@localhost: !FCjoSwC)0p4
 
 Make sure to authenticate to the team main to run task...due to vault..
 
