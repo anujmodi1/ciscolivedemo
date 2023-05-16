@@ -6,7 +6,7 @@ kops export kubeconfig $NAME --admin
 Kubectl get cluster
 
 export VAULT_ADDR=http://dev-vault.ciscolivedemo2022.com:8200
-export VAULT_TOKEN="hvs.v7nPiQImqofr8EfKsovQ9FDP"
+export VAULT_TOKEN="xxxx"
 vault login $VAULT_TOKEN
 
 Login
