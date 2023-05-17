@@ -62,6 +62,16 @@ jobs:
       - task: aws_deploy_centos
         file: git-resource/Section06_AppD_deployment/input/aws_centos_supercar_trader_app/aws_deploy_centos.yml
 
+  - name: aws_centos_vm_delete
+    public: true
+    plan:
+      - get: git-resource
+        passed: [ lab-prep ]
+      - task: delete-aws-centos
+        file: git-resource/Section06_AppD_deployment/input/aws_centos_supercar_trader_app/aws_vm_delete/aws_centos_delete.yml
+      - task: delete-aws-vpc
+        file: git-resource/Section06_AppD_deployment/input/aws_centos_supercar_trader_app/aws_vm_delete/aws_vpc_delete.yml
+
 resource_types:
 resources:
   - name: git-resource
