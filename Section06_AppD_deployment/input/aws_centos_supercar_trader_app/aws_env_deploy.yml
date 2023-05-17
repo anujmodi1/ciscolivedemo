@@ -34,7 +34,7 @@ run:
       aws configure set default.region $REGION
       aws sts get-caller-identity --query Account --output text
       chmod a+x git-resource/Section06_AppD_deployment/input/aws_centos_supercar_trader_app/aws_env_deploy.sh
-      ./git-resource/SSection06_AppD_deployment/input/aws_centos_supercar_trader_app/aws_env_deploy.sh
+      ./git-resource/Section06_AppD_deployment/input/aws_centos_supercar_trader_app/aws_env_deploy.sh
 
 
       
