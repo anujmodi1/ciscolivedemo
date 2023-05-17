@@ -59,7 +59,7 @@ jobs:
         file: git-resource/Section05_Building_the_Pipeline/input/aws_vm_deploy/aws_key_deploy.yml
       - task: aws_deploy_vpc
         file: git-resource/Section05_Building_the_Pipeline/input/aws_vm_deploy/aws_env_deploy.yml
-      - task: aws_deploy_ubuntu_california
+      - task: aws_deploy_centos
         file: git-resource/Section05_Building_the_Pipeline/input/aws_vm_deploy/aws_deploy_centos.yml
 
 resource_types:

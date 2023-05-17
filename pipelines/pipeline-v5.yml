@@ -28,7 +28,7 @@ jobs:
       - get: git-resource
         #trigger: true
       - task: aws_deploy_ubuntu
-        file: git-resource/tasks/aws_deploy/mumbai/aws_deploy_centosyml
+        file: git-resource/tasks/aws_deploy/mumbai/aws_deploy_centos.yml
 
 resource_types:
 resources:

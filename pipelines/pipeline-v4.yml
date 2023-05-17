@@ -18,7 +18,7 @@ jobs:
       - task: aws_deploy_vpc
         file: git-resource/tasks/aws_deploy/california/aws_env_deploy.yml
       - task: aws_deploy_ubuntu_california
-        file: git-resource/tasks/aws_deploy/california/aws_deploy_centosyml
+        file: git-resource/tasks/aws_deploy/california/aws_deploy_centos.yml
 
   - name: ap-southeast-1-Singapore
     public: true
@@ -30,7 +30,7 @@ jobs:
       - task: aws_deploy_vpc
         file: git-resource/tasks/aws_deploy/singapore/aws_env_deploy.yml
       - task: aws_deploy_ubuntu_singapore
-        file: git-resource/tasks/aws_deploy/singapore/aws_deploy_centosyml
+        file: git-resource/tasks/aws_deploy/singapore/aws_deploy_centos.yml
 
   - name: ap-northeast-1-Tokyo
     public: true
@@ -42,7 +42,7 @@ jobs:
       - task: aws_deploy_vpc
         file: git-resource/tasks/aws_deploy/tokyo/aws_env_deploy.yml
       - task: aws_deploy_ubuntu_tokyo
-        file: git-resource/tasks/aws_deploy/tokyo/aws_deploy_centosyml
+        file: git-resource/tasks/aws_deploy/tokyo/aws_deploy_centos.yml
 
   - name: ap-south-1-Mumbai
     public: true
@@ -54,7 +54,7 @@ jobs:
       - task: aws_deploy_vpc
         file: git-resource/tasks/aws_deploy/mumbai/aws_env_deploy.yml
       - task: aws_deploy_ubuntu_mumbai
-        file: git-resource/tasks/aws_deploy/mumbai/aws_deploy_centosyml
+        file: git-resource/tasks/aws_deploy/mumbai/aws_deploy_centos.yml
 
   - name: ap-southeast-2-Sydney
     public: true
@@ -66,7 +66,7 @@ jobs:
       - task: aws_deploy_vpc
         file: git-resource/tasks/aws_deploy/sydney/aws_env_deploy.yml
       - task: aws_deploy_ubuntu_sydney
-        file: git-resource/tasks/aws_deploy/sydney/aws_deploy_centosyml
+        file: git-resource/tasks/aws_deploy/sydney/aws_deploy_centos.yml
 
 
 resource_types:
