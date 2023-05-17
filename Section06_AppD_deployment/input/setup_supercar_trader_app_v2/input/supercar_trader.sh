@@ -36,8 +36,6 @@ MYSQL_ROOT_PASSWORD=$(kubectl get secret --namespace supercar mysql -o jsonpath=
 echo $MYSQL_ROOT_PASSWORD
 apt -y update
 apt -y install mysql-client
-apt -y install unzip
-apt -y install net-tools
 git clone https://github.com/sherifadel90/AppDynamics-SupercarsJavaApp.git
 pwd
 ls
@@ -51,6 +49,9 @@ MYSQL_LB=$(kubectl get svc --namespace supercar mysql -o jsonpath='{.status.load
 mysql -h $MYSQL_LB -uroot -p"$MYSQL_ROOT_PASSWORD" < mysql-01.sql --force
 mysql -h $MYSQL_LB -uroot -p"$MYSQL_ROOT_PASSWORD" < mysql-02.sql --force
 mysql -h $MYSQL_LB -uroot -p"$MYSQL_ROOT_PASSWORD" < mysql-03.sql --force
+tomcat_sc=$(kubectl get pods --namespace supercar --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}' | grep tomcat)
+kubectl exec -it $tomcat_sc -n supercar /bin/sh
+yum install unzip net-tools
 cd /opt
 mkdir appdynamics
 cd /opt/appdynamics
