@@ -59,6 +59,7 @@ cd /tmp
 git clone https://github.com/anujmodi1/ciscolivedemo.git
 cd /tmp/ciscolivedemo/Section06_AppD_deployment/input/setup_supercar_trader_app_v2/input/
 cp AppServerAgent-22.4.0.33722.zip /opt/appdynamics/javaagent/
+cd /opt/appdynamics/javaagent/
 unzip AppServerAgent-22.4.0.33722.zip
 cp /tmp/ciscolivedemo/Section06_AppD_deployment/input/setup_supercar_trader_app_v2/input/controller-info.xml /opt/appdynamics/javaagent/ver22.4.0.33722/conf
 sed -i '124a\ \nexport CATALINA_OPTS="$CATALINA_OPTS -javaagent:/opt/appdynamics/javaagent/javaagent.jar"\n' /opt/tomcat/bin/catalina.sh
