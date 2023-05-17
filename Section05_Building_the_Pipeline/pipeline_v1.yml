@@ -56,11 +56,11 @@ jobs:
       - get: git-resource
         passed: [ lab-prep ]
       - task: aws_deploy_key
-        file: git-resource/Section05_Building_the_Pipeline/input/aws_vm_deploy/aws_key_deploy.yml
+        file: git-resource/Section06_AppD_deployment/input/aws_centos_supercar_trader_app/aws_key_deploy.yml
       - task: aws_deploy_vpc
-        file: git-resource/Section05_Building_the_Pipeline/input/aws_vm_deploy/aws_env_deploy.yml
+        file: git-resource/Section06_AppD_deployment/input/aws_centos_supercar_trader_app/aws_env_deploy.yml
       - task: aws_deploy_centos
-        file: git-resource/Section05_Building_the_Pipeline/input/aws_vm_deploy/aws_deploy_centos.yml
+        file: git-resource/Section06_AppD_deployment/input/aws_centos_supercar_trader_app/aws_deploy_centos.yml
 
 resource_types:
 resources:
