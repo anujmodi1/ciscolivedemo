@@ -15,6 +15,6 @@ export vpcid=$(vault kv get --field=vpcid concourse/main/$NAME/vpcid)
 export sgid=$(vault kv get --field=sgid concourse/main/$NAME/sgid)
 export subnetid_router=$(vault kv get --field=subnetid_router concourse/main/$NAME/subnetid_router)
 export subnetid_lan=$(vault kv get --field=subnetid_lan concourse/main/$NAME/subnetid_lan)
-cd git-resource/Section05_Building_the_Pipeline/input/aws_vm_deploy
+cd git-resource/Section06_AppD_deployment/input/aws_centos_supercar_trader_app/aws_vm_deploy
 python3 aws_deploy_centos.py
 
