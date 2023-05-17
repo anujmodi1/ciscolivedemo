@@ -18,7 +18,7 @@ jobs:
       - task: aws_deploy_vpc
         file: git-resource/tasks/aws_deploy/california/aws_env_deploy.yml
       - task: aws_deploy_ubuntu_california
-        file: git-resource/tasks/aws_deploy/california/aws_deploy_ubuntu.yml
+        file: git-resource/tasks/aws_deploy/california/aws_deploy_centosyml
 
   - name: super-car-trader
     public: true
@@ -38,7 +38,7 @@ jobs:
       - task: aws_deploy_vpc
         file: git-resource/tasks/aws_deploy/mumbai/aws_env_deploy.yml
       - task: aws_deploy_ubuntu_mumbai
-        file: git-resource/tasks/aws_deploy/mumbai/aws_deploy_ubuntu.yml
+        file: git-resource/tasks/aws_deploy/mumbai/aws_deploy_centosyml
 
 resource_types:
 resources:

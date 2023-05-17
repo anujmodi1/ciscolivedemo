@@ -38,7 +38,7 @@ jobs:
       - get: git-resource
         passed: [deploy-aws-vpc]
       - task: deploy-aws-ubuntu
-        file: git-resource/tasks/aws_deploy/aws_deploy_ubuntu.yml
+        file: git-resource/tasks/aws_deploy/aws_deploy_centosyml
 
   - name: delete-aws-ubuntu
     public: true

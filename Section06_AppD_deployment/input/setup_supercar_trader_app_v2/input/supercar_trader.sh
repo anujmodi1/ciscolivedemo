@@ -50,7 +50,7 @@ mysql -h $MYSQL_LB -uroot -p"$MYSQL_ROOT_PASSWORD" < mysql-01.sql --force
 mysql -h $MYSQL_LB -uroot -p"$MYSQL_ROOT_PASSWORD" < mysql-02.sql --force
 mysql -h $MYSQL_LB -uroot -p"$MYSQL_ROOT_PASSWORD" < mysql-03.sql --force
 tomcat_sc=$(kubectl get pods --namespace supercar --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}' | grep tomcat)
-kubectl exec -it $tomcat_sc -n supercar /bin/sh
+kubectl exec -it $tomcat_sc -n supercar /bin/sh --
 yum install unzip net-tools
 cd /opt
 mkdir appdynamics
