@@ -36,8 +36,8 @@ run:
       aws configure set aws_access_key_id $AWS_KEY_ID
       aws configure set aws_secret_access_key $AWS_KEY
       aws configure set default.region $REGION 
-      chmod a+x git-resource/Section06_AppD_deployment/input/aws_centos_supercar_trader_app/aws_vm_delete/aws_vpc_delete.sh
-      ./git-resource/Section06_AppD_deployment/input/aws_centos_supercar_trader_app/aws_vm_delete/aws_vpc_delete.sh
+      chmod a+x git-resource/Section06_AppD_deployment/input/aws_vm_delete/aws_vpc_delete.sh
+      ./git-resource/Section06_AppD_deployment/input/aws_vm_delete/aws_vpc_delete.sh
       
 
 
