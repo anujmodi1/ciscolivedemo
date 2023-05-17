@@ -48,6 +48,7 @@ mkdir javaagent
 cd cd /opt/appdynamics/javaagent
 cd /tmp
 git clone https://github.com/anujmodi1/ciscolivedemo.git
+cd /tmp/ciscolivedemo/Section06_AppD_deployment/input/setup_supercar_trader_app_v2/input/
 cp AppServerAgent-22.4.0.33722.zip /opt/appdynamics/javaagent/
 cd /opt/appdynamics/javaagent/
 yum install unzip
@@ -88,6 +89,8 @@ Add this line after line 111 in the catalina.sh file:
 Set this on the pre-build docker container..
 export CATALINA_OPTS="$CATALINA_OPTS -javaagent:/opt/appdynamics/javaagent/javaagent.jar"
 sudo systemctl start apache-tomcat-7.service
+yum install net-tools
+
 sudo netstat -tulpn | grep LISTEN
 
 cd /opt/appdynamics

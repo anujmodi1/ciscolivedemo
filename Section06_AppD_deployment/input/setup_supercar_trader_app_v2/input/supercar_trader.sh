@@ -36,6 +36,8 @@ MYSQL_ROOT_PASSWORD=$(kubectl get secret --namespace supercar mysql -o jsonpath=
 echo $MYSQL_ROOT_PASSWORD
 apt -y update
 apt -y install mysql-client
+apt -y install unzip
+apt -y install net-tools
 git clone https://github.com/sherifadel90/AppDynamics-SupercarsJavaApp.git
 pwd
 ls
@@ -49,5 +51,28 @@ MYSQL_LB=$(kubectl get svc --namespace supercar mysql -o jsonpath='{.status.load
 mysql -h $MYSQL_LB -uroot -p"$MYSQL_ROOT_PASSWORD" < mysql-01.sql --force
 mysql -h $MYSQL_LB -uroot -p"$MYSQL_ROOT_PASSWORD" < mysql-02.sql --force
 mysql -h $MYSQL_LB -uroot -p"$MYSQL_ROOT_PASSWORD" < mysql-03.sql --force
+cd /opt
+mkdir appdynamics
+cd /opt/appdynamics
+mkdir javaagent
+cd /tmp
+git clone https://github.com/anujmodi1/ciscolivedemo.git
+cd /tmp/ciscolivedemo/Section06_AppD_deployment/input/setup_supercar_trader_app_v2/input/
+cp AppServerAgent-22.4.0.33722.zip /opt/appdynamics/javaagent/
+unzip AppServerAgent-22.4.0.33722.zip
+cp /tmp/ciscolivedemo/Section06_AppD_deployment/input/setup_supercar_trader_app_v2/input/controller-info.xml /opt/appdynamics/javaagent/ver22.4.0.33722/conf
+sed -i '124a\ \nexport CATALINA_OPTS="$CATALINA_OPTS -javaagent:/opt/appdynamics/javaagent/javaagent.jar"\n' /opt/tomcat/bin/catalina.sh
+/opt/tomcat/bin/catalina.sh run
+cd /opt/appdynamics
+mkdir lab-artifacts
+cd /opt/appdynamics/lab-artifacts
+wget https://povplaybook.appdpartnerlabs.net/zip/lab-artifacts.zip
+cd /opt/appdynamics/lab-artifacts
+unzip lab-artifacts.zip
+chmod 754 /opt/appdynamics/lab-artifacts/phantomjs/*.sh
+sed -i -e 's/\r$//' /opt/appdynamics/lab-artifacts/phantomjs/*.sh
+cd /opt/appdynamics/lab-artifacts/phantomjs
+./start_load.sh
+
 
 
