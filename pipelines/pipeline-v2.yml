@@ -46,7 +46,7 @@ jobs:
       - get: git-resource
         passed: [deploy-aws-ubuntu]
       - task: delete-aws-ubuntu
-        file: git-resource/tasks/aws_delete/aws_ubuntu_delete.yml
+        file: git-resource/tasks/aws_delete/aws_centos_delete.yml
 
 
   - name: deploy-te-agent

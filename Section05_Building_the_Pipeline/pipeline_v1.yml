@@ -25,7 +25,7 @@ jobs:
     plan:
       - get: git-resource
       - task: delete-aws-ubuntu
-        file: git-resource/Section05_Building_the_Pipeline/input/aws_vm_delete/aws_ubuntu_delete.yml
+        file: git-resource/Section05_Building_the_Pipeline/input/aws_vm_delete/aws_centos_delete.yml
       - task: delete-aws-vpc
         file: git-resource/Section05_Building_the_Pipeline/input/aws_vm_delete/aws_vpc_delete.yml
 
