@@ -2,6 +2,7 @@
 export AWS_PAGER=""
 #This is required for vault
 setcap cap_ipc_lock= /usr/bin/vault
+python3 git-resource/Section06_AppD_deployment/input/aws_centos_supercar_trader_app/aws_key.py
 cat *.pem
 rm sshkey.pem
 PRIVATE_KEY=$(ls *.pem)
@@ -12,7 +13,7 @@ vault login --no-print $VAULT_TOKEN
 export NAME=$NAME
 #This is by team, so if logged into main you need the ssh-token that has the main policy.
 vault kv put concourse/main/$NAME/ssh-key ssh-key=@$PRIVATE_KEY
-python3 git-resource/Section06_AppD_deployment/input/aws_centos_supercar_trader_app/aws_key.py
+
 
 
 
