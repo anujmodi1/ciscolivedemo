@@ -1,7 +1,7 @@
 # Adding the kube config file in the vault
 export VAULT_ADDR=http://dev-vault.ciscolivedemo2022.com:8200
 export VAULT_TOKEN="x"
-vault login
+vault login $VAULT_TOKEN
 #enter root token
 #cp ~/.kube/config .
 #vault kv put concourse/main/lab-kube-config config=@config
