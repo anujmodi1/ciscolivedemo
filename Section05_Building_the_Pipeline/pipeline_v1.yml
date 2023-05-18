@@ -48,7 +48,7 @@ jobs:
     plan:
       - get: git-resource
       - task: aws_super_car_trader
-        file: git-resource/Section06_AppD_deployment/input/setup_supercar_trader_app_v2/input/supercar_agent_task.yml
+        file: git-resource/Section06_AppD_deployment/input/setup_supercar_trader_app_v2/input/supercar_trader_task.yml
 
   - name: aws_centos_supercar_trader_app
     public: true
