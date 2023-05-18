@@ -9,8 +9,6 @@ import requests
 #import the env vars and logon to vault to get the secret and then use it to run this command and write the output to the vault
 secret = os.getenv('APPD_SECRET')
 
-#curl -X POST -H "Content-Type: application/vnd.appd.cntrl+protobuf;v=1" "https://kickstarter.saas.appdynamics.com/controller/api/oauth/access_token" -d "grant_type=client_credentials&client_id=fsolab4@kickstarter&client_secret=9f302488-47a6-4168-a303-f74deb2c9457"
-
 url = "https://kickstarter.saas.appdynamics.com/api/oauth/access_token"
 payload = "grant_type=client_credentials&client_id=fsolab4@kickstarter&client_secret=" + secret
 print(payload)
