@@ -7,4 +7,4 @@ vault login --no-print $SSH_TOKEN
 echo $SSH_TOKEN
 APPD_SECRET=$(vault kv get --field=key concourse/main/appd-secret)
 export APPD_SECRET=$APPD_SECRET
-python3 get_appd_token_v2.py
+python3 appd_get_token.py
