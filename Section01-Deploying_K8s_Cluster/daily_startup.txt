@@ -1,12 +1,9 @@
-export AWS_PROFILE=kops
 export AWS_ACCESS_KEY_ID=$(aws configure get aws_access_key_id)
 export AWS_SECRET_ACCESS_KEY=$(aws configure get aws_secret_access_key)
 export NAME=k8s.ciscolivedemo2022.com
 export KOPS_STATE_STORE=s3://ciscolivedemo2022-kops-state
 kops export kubeconfig $NAME --admin
-kops get cluster
-kubectl get nodes
-
+Kubectl get cluster
 
 export VAULT_ADDR=http://dev-vault.ciscolivedemo2022.com:8200
 export VAULT_TOKEN="xxxx"
