@@ -17,8 +17,8 @@ Change the test name and re-run, it will create a new test and add all the enter
 test_name = 'ciscolivetest'
 
 agent_list_json = agent_response.json()
-print("Printing Agent List Json")
-print(agent_list_json)
+#print("Printing Agent List Json")
+#print(agent_list_json)
 
 agent_list = agent_list_json['agents']
 list_of_dictionaries = agent_list
@@ -27,7 +27,7 @@ found_values = []
 for dictionary in list_of_dictionaries:
     if (dictionary["agentType"] == "Enterprise"):
         found_values.append(dictionary)
-print(found_values)
+#print(found_values)
 
 empty_list=[]
 for item in found_values:
@@ -45,5 +45,5 @@ header = {'content-type': 'application/json', 'authorization': 'Bearer ' + token
 r = requests.post(url, data=json.dumps(payload), headers=header, verify=False)
 print(r)
 
-print("here is your Thousand Eyes Oathtoken in case you would like to use the jupyter notebook to look at the json payloads in more detail...")
-print(token)
+#print("here is your Thousand Eyes Oathtoken in case you would like to use the jupyter notebook to look at the json payloads in more detail...")
+#print(token)
