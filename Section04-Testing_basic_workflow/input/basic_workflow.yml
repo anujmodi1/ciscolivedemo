@@ -22,7 +22,7 @@ run:
   args:
     - -ce
     - |
-      chmod a+x input/vault_prep.sh
-      ./input/vault_prep.sh
+      chmod a+x input/basic_workflow.sh
+      ./input/basic_workflow.sh
 
 
