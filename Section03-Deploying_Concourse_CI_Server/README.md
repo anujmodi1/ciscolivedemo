@@ -17,7 +17,7 @@ If you wish to upgrade the image tag or chart version, you should first test it 
       pipelineSecretTemplate: /concourse/{{.Team}}/{{.Pipeline}}/{{.Secret}}
 
 - [] Before installing, update the ci user password in the values file on line 2788 from $PASSWORD to something new
-    - line 2789:localUsers: "ci:cisco@2022,ap-south-1a:ap-south-1a!,us-east-1a:us-east-1a!"
+    - line 2789:localUsers: "ci:xxxxx,ap-south-1a:ap-south-1a!,us-east-1a:us-east-1a!"
 - [] Update your vault url and also your concourse web external url
     - line 250: externalUrl: http://dev-ci.ciscolivedemo2022.com:8080
     - line 568: url: http://dev-vault.ciscolivedemo2022.com:8200
@@ -49,7 +49,7 @@ Login
 
 fly --target=prod login --concourse-url=http://prod-ci.devops-ontap.com:8080 -n main --username=ci --password=""
 
-fly --target=dev login --concourse-url=http://dev-ci.ciscolivedemo2022.com:8080 -n main --username=ci --password=cisco@2022
+fly --target=dev login --concourse-url=http://dev-ci.ciscolivedemo2022.com:8080 -n main --username=ci --password=xxxx
 
 Set-Pipeline Example:
 ========
@@ -96,7 +96,7 @@ http://dev-ci.cisco-fso-labs.com:8080/
 #enter the default user name & password as values.yaml file
 cd /Users/anmodi/dev/cisco-fso-labs/HELM/CONCOURSE
 fly --target=cisco-fso-labs login --concourse-url=http://dev-ci.cisco-fso-labs.com:8080 -n main --username=ci --password=PASSWORD!
-fly --target=target login --concourse-url=http://dev-ci.ciscolivedemo2022.com:8080 -n main --username=ci --password=cisco@2022
+fly --target=target login --concourse-url=http://dev-ci.ciscolivedemo2022.com:8080 -n main --username=ci --password=xxxxx
 
 # create team cisco-fso--labs
 #setting up team and users

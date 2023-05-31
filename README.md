@@ -15,6 +15,8 @@ AppDynamics Portal
 https://kickstarter.saas.appdynamics.com/
 Appdynamics API Docs
 https://docs.appdynamics.com/appd/23.x/latest/en/extend-appdynamics/appdynamics-apis
+Supercar Trader Application WebPortal
+https://ec2-54-189-18-24.us-west-2.compute.amazonaws.com:8080/Supercar-Trader/home.do   #This address can change with reboot of the server
 
 
 ThousandEyes Portal

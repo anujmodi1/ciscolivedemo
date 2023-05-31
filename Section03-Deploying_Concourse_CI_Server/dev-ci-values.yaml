@@ -2786,7 +2786,7 @@ secrets:
   ## List of `username:password` or `username:bcrypted_password` combinations for all your local concourse users.
   ## For details of expected format, see https://concourse-ci.org/local-auth.html
   ##
-  localUsers: "ci:cisco@2022,ap-south-1a:ap-south-1a!,us-east-1a:us-east-1a!"
+  localUsers: "ci:xxxxxx,ap-south-1a:ap-south-1a!,us-east-1a:us-east-1a!"
 
   ## The TLS certificate and private key for the web component to be able to terminate
   ## TLS connections.
