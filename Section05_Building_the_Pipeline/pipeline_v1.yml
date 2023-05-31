@@ -8,11 +8,10 @@ jobs:
       - task: lab_prep
         file: git-resource/Section05_Building_the_Pipeline/input/vault_prep.yml
 
-  - name: aws_vm_deploy
+  - name: aws_ubuntu_vm_deploy
     public: true
     plan:
       - get: git-resource
-        passed: [lab-prep]
       - task: aws_deploy_key
         file: git-resource/Section05_Building_the_Pipeline/input/aws_vm_deploy/aws_key_deploy.yml
       - task: aws_deploy_vpc
@@ -20,7 +19,7 @@ jobs:
       - task: aws_deploy_ubuntu_california
         file: git-resource/Section05_Building_the_Pipeline/input/aws_vm_deploy/aws_deploy_ubuntu.yml
 
-  - name: aws_vm_delete
+  - name: aws_ubuntu_vm_delete
     public: true
     plan:
       - get: git-resource
@@ -29,7 +28,7 @@ jobs:
       - task: delete-aws-vpc
         file: git-resource/Section05_Building_the_Pipeline/input/aws_vm_delete/aws_vpc_delete.yml
 
-  - name: deploy-te-agent-vault
+  - name: deploy-te-agent
     public: true
     plan:
       - get: git-resource
@@ -47,6 +46,7 @@ jobs:
     public: true
     plan:
       - get: git-resource
+        passed: [lab-prep]
       - task: aws_super_car_trader
         file: git-resource/Section06_AppD_deployment/input/setup_supercar_trader_app_v2/input/supercar_trader_task.yml
 
