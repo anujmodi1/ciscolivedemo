@@ -3,7 +3,7 @@
 The Instructor has already generated an AppD Access API key from the GUI and entered it into the vault.
 
 To run these tasks, make sure you are in the input directory:
-cd ciscolivedemo/Section08_appd_api_tasks/input
+cd Section08_appd_api_tasks/input
 
 Login via fly with the username and password shared with you in the lab guide
 fly --target=target login --concourse-url=http://dev-ci.ciscolivedemo2022.com:8080 -n main --username=ci --password=xxxxx
@@ -13,7 +13,7 @@ fly -t target e -c appd_get_token_task.yml
 
 This authenticates to the AppD Api and generates a temporary oath token and writes it to the vault
 
-$fly -t target e -c appd_use_token_task.yml
+fly -t target e -c appd_use_token_task.yml
 
 This uses the temp oath token you generated that was written to the vault and uses it to perform an API call that returns list of business transactions from Supercar Trader App from the AppD API
 

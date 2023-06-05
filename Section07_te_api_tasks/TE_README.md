@@ -3,7 +3,7 @@
 The Instructor has already generated an TE OAuth API key from the GUI and entered it into the vault.
 
 To run these tasks, make sure you are in the input directory:
-cd ciscolivedemo/Section07_te_api_tasks/input
+cd Section07_te_api_tasks/input
 
 Login via fly with the username and password shared with you in the lab guide
 fly --target=target login --concourse-url=http://dev-ci.ciscolivedemo2022.com:8080 -n main --username=ci --password=xxxxx

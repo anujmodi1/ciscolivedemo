@@ -99,7 +99,7 @@ SSH_TOKEN: ((ssh-token.token))
 
 vault token create --policy ciscolivedemo --period 24h
 
-vault token create --policy main --period 24h
+vault token create --policy main --period 600h
 
 **AWS Secrets Engine**
 **Enable the AWS secrets engine:**
