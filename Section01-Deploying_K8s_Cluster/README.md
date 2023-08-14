@@ -53,10 +53,10 @@ export AWS_SECRET_ACCESS_KEY=$(aws configure get aws_secret_access_key)
 #DNS configuration, create the hosted zone in route53
 # domain name: ciscolivedemo2022.com
 #name servers from aws
-ns-1924.awsdns-48.co.uk.
-ns-1037.awsdns-01.org.
-ns-193.awsdns-24.com.
-ns-739.awsdns-28.net.
+ns-1471.awsdns-55.org.
+ns-1588.awsdns-06.co.uk.
+ns-391.awsdns-48.com.
+ns-789.awsdns-34.net.
 
 #test dns servers
 dig ns ciscolivedemo2022.com
@@ -102,6 +102,8 @@ kops edit cluster ${NAME}
 #kops update cluster --name ${NAME} --yes --admin
 kops update cluster --name ${NAME} --yes --admin
 kops validate cluster --wait 10m
+
+kops validate cluster --name ${NAME} --wait 10m
 # ssh -i ~/.ssh/id_rsa ubuntu@api.kube.ciscolivedemo2022.com
 kops delete cluster --name ${NAME} --yes
 kubectl get nodes --show-labels
