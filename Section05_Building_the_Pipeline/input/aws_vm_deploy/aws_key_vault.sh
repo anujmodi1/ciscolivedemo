@@ -12,7 +12,9 @@ export VAULT_TOKEN=$SSH_TOKEN
 vault login --no-print $VAULT_TOKEN
 export NAME=$NAME
 #This is by team, so if logged into main you need the ssh-token that has the main policy.
+vault kv put concourse/main/test2 data=test1234
 vault kv put concourse/main/$NAME/ssh-key ssh-key=@$PRIVATE_KEY
+
 
 
 
