@@ -2798,7 +2798,7 @@ secrets:
   ## List of `username:password` or `username:bcrypted_password` combinations for all your local concourse users.
   ## For details of expected format, see https://concourse-ci.org/local-auth.html
   ##
-  localUsers: "ci:xxxx,ap-south-1a:ap-south-1a!"
+  localUsers: "ci:cisco@2022,ap-south-1a:ap-south-1a!"
 
   ## The TLS certificate and private key for the web component to be able to terminate
   ## TLS connections.
@@ -3047,8 +3047,8 @@ secrets:
   ## e.g. "role_id:x,secret_id:x"
   ## Ref: https://concourse-ci.org/vault-credential-manager.html#vault-approle-auth
   ##
-  vaultAuthParam: "role_id:ea00f33b-dbf0-efd4-2ada-589f2e797be8,secret_id:abddeef1-bf0d-9bf9-b181-76548a5b0bfa"
-  vault-client-auth-param: "role_id:ea00f33b-dbf0-efd4-2ada-589f2e797be8,secret_id:abddeef1-bf0d-9bf9-b181-76548a5b0bfa"
+  vaultAuthParam: "role_id:57e6df2b-19cf-d4bd-eb71-72db9e17f03d,secret_id:22920916-6ec2-15d1-8917-7b7869404fc1"
+  vault-client-auth-param: "role_id:57e6df2b-19cf-d4bd-eb71-72db9e17f03d,secret_id:22920916-6ec2-15d1-8917-7b7869404fc1"
 
   ## provide the client certificate for authenticating with the [TLS](https://www.vaultproject.io/docs/auth/cert.html) backend
   ## the value will be written to /concourse-vault/client.cert

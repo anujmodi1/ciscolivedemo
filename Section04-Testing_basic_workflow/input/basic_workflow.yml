@@ -16,7 +16,8 @@ params:
   UNPACK_ROOTFS: true
   VAULT_ADDR: http://dev-vault.ciscolivedemo2022.com:8200
   SSH_TOKEN: ((ssh-token.token))
-  NAME: us-east-1
+    #SSH_TOKEN: hvs.CAESIAetrr2Hqc0mcGjYo4L-qaCTTdRsQppgapIcSjIIx0pIGh4KHGh2cy5YZmdTb1R2dk02NjVCeTVINVZoUGJER1Y
+  #NAME: us-east-1
 run:
   path: /bin/sh
   args:
