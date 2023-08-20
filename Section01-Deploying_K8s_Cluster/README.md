@@ -81,6 +81,11 @@ aws s3api put-bucket-versioning --bucket ciscolivedemo2022-kops-state  --version
 #export NAME=cluster1.k8s.local
 export NAME=k8s.ciscolivedemo2022.com
 export KOPS_STATE_STORE=s3://ciscolivedemo2022-kops-state
+set AWS_ACCESS_KEY_ID=$(aws configure get aws_access_key_id)
+set AWS_SECRET_ACCESS_KEY=$(aws configure get aws_secret_access_key)
+set NAME=kubernetes.ciscolivedemo2022.com
+set KOPS_STATE_STORE=s3://ciscolivedemo2022-kops-state
+
 
 #Empty bucket , it doesn't delete the all the content, better to detete GUI
 aws s3 rm s3://ciscolivedemo2022-kops-state --recursive
