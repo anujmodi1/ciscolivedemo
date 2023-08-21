@@ -14,7 +14,7 @@ print(agent_response)
 This will first fail as the test already exists. Run it, let it fail
 Change the test name and re-run, it will create a new test and add all the enterprise agents to the test
 '''
-test_name = 'ciscolivetest'
+test_name = 'ciscolivetest2023'
 
 agent_list_json = agent_response.json()
 #print("Printing Agent List Json")
