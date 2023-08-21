@@ -15,7 +15,7 @@ params:
   AWS_KEY: ((Secret_access_key.Secret_access_key))
   NAME: us-west-2a
   REGION: us-west-2
-  CENTOS_AMI_ID: ami-0968c0e727af0ec17
+  CENTOS_AMI_ID: ami-08c191625cfb7ee61
   VAULT_ADDR: http://dev-vault.ciscolivedemo2022.com:8200
   SSH_TOKEN: ((ssh-token.token))
 
