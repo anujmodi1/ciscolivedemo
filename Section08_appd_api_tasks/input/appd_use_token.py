@@ -14,7 +14,7 @@ STR_APPD_OATH_TOKEN=str(APPD_OATH_TOKEN)
 #url="https://cisco-apipartnertraininglab.saas.appdynamics.com/controller/rest/applications/Supercar-Trader/metrics"
 #url="https://cisco-apipartnertraininglab.saas.appdynamics.com/controller/rest/applications?output=JSON"
 
-url="https://kickstarter.saas.appdynamics.com/controller/rest/applications/Supercar-Trader-CLMay/business-transactions?output=JSON"
+url="https://kickstarter.saas.appdynamics.com/controller/rest/applications/SuperCar-Impact/business-transactions?output=JSON"
 
 payload={}
 headers = {
